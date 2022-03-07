@@ -1,0 +1,9 @@
+* {
+  accent:           #106466;
+  background:       #FFCB9B8f;
+  background-light: #D8B08C;
+  foreground:       #2C3532;
+  background-alt:   #00000000;
+  on:               #43a047;
+  off:              #ef5350;
+}

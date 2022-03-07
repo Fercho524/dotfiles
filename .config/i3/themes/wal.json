@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/fercho/.wallpapers/Shapes/Desktop/wp4426973-imac-pro-abstract-wallpapers.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0f0e0e",
+        "foreground": "#ebc6f0",
+        "cursor": "#ebc6f0"
+    },
+    "colors": {
+        "color0": "#0f0e0e",
+        "color1": "#934AF1",
+        "color2": "#AD50F5",
+        "color3": "#AA66F1",
+        "color4": "#D765F5",
+        "color5": "#FAA2A1",
+        "color6": "#D8A9C9",
+        "color7": "#ebc6f0",
+        "color8": "#a48aa8",
+        "color9": "#934AF1",
+        "color10": "#AD50F5",
+        "color11": "#AA66F1",
+        "color12": "#D765F5",
+        "color13": "#FAA2A1",
+        "color14": "#D8A9C9",
+        "color15": "#ebc6f0"
+    }
+}

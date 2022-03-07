@@ -1,0 +1,222 @@
+@import "/home/fercho/.cache/wal/colors-waybar.css";
+
+* {
+    border: none;
+    border-radius: 4px;
+    font-family: "SpaceMono NF", monospace;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @background;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 2px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+  background-color: transparent;
+}
+window#waybar.solo {
+  background-color: #FFFFFF;
+}
+*/
+
+#workspaces button {
+    padding: 0 0.4em;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: @color1;
+}
+
+#workspaces button.focused {
+    background-color: @color2;
+}
+
+#workspaces button.urgent {
+    background-color: @cursor;
+}
+
+#mode {
+    background-color: @color1;
+    color: @foreground;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    margin: 6px 3px;
+    color: @foreground;
+}
+
+#window,
+#workspaces {
+    margin: 0 1px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @color1;
+}
+
+#battery {
+    background-color: @color2;
+    color: @foreground;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @foreground;
+    background-color: @color3;
+}
+
+@keyframes blink {
+    to {
+        background-color: @color4;
+        color: @foreground;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: @color5;
+    color: @foreground;
+}
+
+#memory {
+    background-color: @color1;
+}
+
+#disk {
+    background-color: @color2;
+}
+
+#backlight {
+    background-color: @color3;
+}
+
+#network {
+    background-color: @color7;
+}
+
+#network.disconnected {
+    background-color: @color8;
+}
+
+#pulseaudio {
+    background-color: @color9;
+    color: @foreground;
+}
+
+#pulseaudio.muted {
+    background-color: @color10;
+    color: @foreground;
+}
+
+#custom-media {
+    background-color: @color5;
+    color: @foreground;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: @color3;
+}
+
+#temperature {
+    background-color: @coloe4;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    background-color: #161416;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+#mpd {
+    background-color: @colo1;
+    color: @foreground;
+}
+
+#mpd.disconnected {
+    background-color: @background;
+}
+
+#mpd.stopped {
+    background-color: @color3;
+}
+
+#mpd.paused {
+    background-color: @background;
+}
+
+#language {
+    background: @background;
+    color: @foreground;
+    padding: 0 5px;
+    margin: 6px 3px;
+    min-width: 16px;
+}

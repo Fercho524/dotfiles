@@ -1,0 +1,10 @@
+/*
+ * Change the colorscheme for every menu simply by editing this file...
+ * 
+ * adapta, adapta-nokto, arc, arc-dark, adwaita, gruvbox, dark
+ * armchair, darkpink, fresh, inside, party, sirin
+ * black , white
+ */
+
+@import "wal.rasi"
+

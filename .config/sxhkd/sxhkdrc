@@ -1,0 +1,160 @@
+
+# ░░███████  ░██    ░██  ░██    ░██ ░██   ░██ ░█████
+# ░░██         ░██  ░██   ░██    ░██ ░██  ░██  ░██  ░██
+# ░░███████     ░███      ░████████ ░████     ░██    ░██
+#        ░██   ░██  ░██   ░██    ░██ ░██  ░██  ░██   ░██
+# ░░███████  ░██    ░██  ░██    ░██ ░██   ░██ ░█████
+
+
+######################################################################
+#                                                                    #
+######################################################################
+
+# UTILITIES for specifyc apps
+super + Return
+  kitty
+
+super  e  
+  nemo
+
+super + 0
+  sh ~/.bin/wal.sh 
+
+super + b
+  brave
+
+# ROFI
+
+# Show the app menu
+super + m
+  ~/.config/rofi/launcher.sh 
+
+# invoke a powermenu
+super + x
+  ~/.config/rofi/powermenu.sh
+
+# Run a fast command
+super + r
+   ~/.config/rofi/run.sh
+
+# Switch between windows
+super + Tab
+  ~/.config/rofi/window.sh
+
+# REDSHIFT, night light
+super + F6 
+  redshift -O 6000
+
+super + F5
+  redshift -x
+
+# SCREENSHOTS, flameshot is the best fox xssesions
+Print
+  flameshot full -p ~/.screenshots
+
+super + Print
+  flameshot gui
+
+######################################################################
+#         WORSPACES
+######################################################################
+
+# Go or send a window to workspace
+super + {_,shift + }{1-9}
+  bspc {desktop -f,node -d} '^{1-9}'paces 
+
+######################################################################
+#         WM ATACHMENTS
+######################################################################
+
+# Logout
+super + shift + q
+  bspc quit
+
+# Restart the wm
+super + shift + r
+  bspc wm -r
+
+super + l
+  i3lock-fancy
+
+######################################################################
+#         HARDWARE
+######################################################################
+
+#pactl set-sink-volume @DEFAULT_SINK@ +5%
+# VOLUME, use  pamixer or pactl
+# Up volume : pamixer -i 5
+XF86AudioRaiseVolume 
+  pamixer -i 5
+
+  #pactl set-sink-volume @DEFAULT_SINK@ -5%
+# Low volume :pamixer -d 5
+XF86AudioLowerVolume 
+  pamixer -d 5 
+
+# Mute speaker : pamixer --t --get-default-sink
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  
+# Mute microphone : pamixer -t --default-source
+XF86AudioMicMute
+  pactl set-source-mute @DEFAULT_SOURCE@  toggle
+
+# BRIGHTNESS, only works for laptops with FN key
+XF86MonBrightnessUp
+  brightnessctl set +5%
+
+XF86MonBrightnessDown
+  brightnessctl set 5%-
+
+######################################################################
+#         WINDOW MANAGEMENT
+######################################################################
+
+# Set a window floating
+super + f
+  bspc node -t {floating,tiled}
+
+# Close window
+super + w
+  bspc node --focus --close
+
+# Rezize Windows 
+super + {Up,Down,Left,Right}
+  {bspc node -z top 10 10; bspc node -z bottom -10 -10, bspc node -z bottom 10 10; bspc node -z top -10 -10, bspc node -z left 10 10; bspc node -z right -10 -10, bspc node -z right 10 10; bspc node -z left -10 -10 }
+
+#  Move windows
+super + shift + {Up,Down,Left,Right}
+  bspc node -s {north,south,west,east}
+
+# Fulscreen
+super + F11 
+  bspc node -t {fullscreen,tiled}
+
+# AvPág key
+super + Next  
+  bspc desktop -f next
+
+# RePág key
+super + Prior 
+  bspc desktop -f prev
+
+######################################################################
+#         CUSTOM ATACHMENDS
+######################################################################
+
+super + alt + n
+  code ~/Diario
+
+super + alt + a
+  code ~/Apuntes
+
+super + alt + d
+  code ~/Desarrollo 
+
+super + F2
+  ~/.bin/monitors.sh on 
+
+super +F3
+  ~/.bin/monitors.sh off 

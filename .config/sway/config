@@ -1,0 +1,278 @@
+#*******************************************************************************************************************************
+#       MODKEYS SETTINGS
+#*******************************************************************************************************************************
+
+
+set $mod Mod4
+set $alt Mod1
+
+
+#*******************************************************************************************************************************
+#       I3 CONFIGURATION FILES
+#*******************************************************************************************************************************
+
+
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+q exit
+
+
+#*******************************************************************************************************************************
+#       WINDOW SETTINGS
+#*******************************************************************************************************************************
+
+
+for_window [class="^.*"] border pixel 2
+#border_radius 10
+gaps inner 2
+gaps outer 2
+
+
+#*******************************************************************************************************************************
+#       WINDOW CONTROLS
+#*******************************************************************************************************************************
+
+
+# KILL FOCUSED WINDOW
+bindsym $mod+w kill
+
+# MOVE BETWEEN WINDOWS
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# MOVE FOCUSED WINDOW
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+
+#*******************************************************************************************************************************
+#       WINDOW MODES
+#*******************************************************************************************************************************
+
+
+# MAKE A WINDOW FLOAT
+floating_modifier $mod
+bindsym $mod+f floating toggle
+
+# FULLSCREENMODE
+bindsym $mod+F11 fullscreen toggle
+
+# REZIZE MODE
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+       
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+#*******************************************************************************************************************************
+#       LAYOUTS
+#*******************************************************************************************************************************
+
+
+# LAYOUTS
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+t layout tabbed
+
+# TOGGLE SPLIT LAYOUT
+#bindsym $mod+l layout toggle split
+
+# MOSAIC TILING LAYOUT
+bindsym $mod+g layout toggle split
+
+# OPEN A NEW COLUMN
+bindsym $mod+c split h
+
+# OPEN A NEW ROW
+bindsym $mod+v split v
+
+
+#*******************************************************************************************************************************
+#       WORKSPACES
+#*******************************************************************************************************************************
+
+
+# WORKSPACES NAMES
+set $ws1  "1:    " 
+set $ws2  "2:   "
+set $ws3  "3:    "
+set $ws4  "4:    "
+set $ws5  "5:    "
+set $ws6  "6:    "
+set $ws7  "7:    "
+set $ws8  "8:    "
+set $ws9  "9:  漣  "
+set $ws10 "10:  力  "
+
+# SWITCH TO WORKSPACE
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# MOVE FOCUSED TO WORKSPACE
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# SWITCH BETWEEN PREVIUS AND NEXT WORLSPACE
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
+
+# WORKSPACES APPS
+assign [class="zoom"] $ws5 # no more zoom popup windows in my current workspace !
+assign [class="nemo"] $ws3
+
+#*******************************************************************************************************************************
+#       APPS
+#*******************************************************************************************************************************
+
+
+# DEFAULT APPS
+set $terminal kitty
+set $files nemo
+set $browser brave
+
+# APPS LEYBINDINGS
+bindsym $mod+Return exec $terminal
+bindsym $mod+e  exec $files
+bindsym $alt+b exec $browser
+
+# SCREENSHOTS
+bindsym $mod+Print exec bash ~/.config/sway/scripts/grim.sh -a
+bindsym Print exec bash   ~/.config/sway/scripts/grim.sh 
+bindsym $mod+F6 exec wlsunset -T 4500
+
+#*******************************************************************************************************************************
+#       GUI APPLETS
+#*******************************************************************************************************************************
+
+
+# APPLETS
+set $launcher bash .config/rofi/launcher.sh
+set $powermenu bash .config/rofi/powermenu.sh
+#set $screenshot bash .config/rofi/screenshot.sh
+#set $volume bash .config/rofi/volume.sh
+#set $blacklight bash .config/rofi/blacklight.sh
+#set $mpd bash .config/rofi/mpd.sh
+set $quicklinks bash .config/rofi/quicklinks.sh
+set $apps bash .config/rofi/apps.sh
+set $battery bash .config/rofi/battery.sh
+set $network bash .config/rofi/network.sh
+set $time bash .config/rofi/time.sh
+set $emoji bash .config/rofi/emoji.sh
+set $window bash .config/rofi/window.sh
+set $run bash .config/rofi/run.sh
+ 
+# APPLETS KEYBINDINGS
+bindsym $mod+m exec $launcher ## Done
+bindsym $mod+x exec $powermenu ## Done
+#bindsym $mod+Print exec $screenshot ## Done
+#bindsym $mod+F1 exec $volume ## Done
+#bindsym $mod+o exec $blacklight
+#bindsym $mod+Shift+l exec $mpd ## Done
+#bindsym $mod+z exec $quicklinks ## Done
+bindsym $mod+a exec $apps ## Done
+bindsym $mod+p exec $battery ## Done
+bindsym $mod+n exec $network ## Done
+bindsym $mod+Control+e exec $emoji
+bindsym $mod+Shift+w exec $window
+bindsym $mod+Shift+m exec $run
+
+
+#*******************************************************************************************************************************
+#       HARDWARE
+#*******************************************************************************************************************************
+
+
+# BRIGHTNESS
+bindsym XF86MonBrightnessUp exec brightnessctl set +1%
+bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
+
+# AUDIO 
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume  @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume  @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute  @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute  @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# MONITORS F2 when conneca a monitor and F3 when disconnect it
+
+
+#*******************************************************************************************************************************
+#       STARTUP APPS
+#*******************************************************************************************************************************
+
+# KEYBOARD 
+input * {
+    xkb_layout "latam"
+    xkb_variant "colemak,,typewriter"
+    xkb_options "grp:win_space_toggle"
+}
+
+#*******************************************************************************************************************************
+#       INTERFACE COLORS
+#*******************************************************************************************************************************
+
+# COLORS
+set $bg #0B0B0B50
+set $focused-color #9980FA
+set $text-color #ffffff
+set $urgent-color #FFC312
+set $active-color #95a5a6
+set $unfocused #2c3e50
+
+# WINDOW STYLE  BORDER   BACKGR  TEXT  INDICATOR   child_border  #last child border 
+client.focused 		        $focused-color $focused-color     $text-color     $focused-color
+client.focused_inactive   $focused-color $unfocused    $text-color     
+client.unfocused          $unfocused     $unfocused      $text-color     
+client.urgent             $urgent-color  $urgent-color  $text-color    
+
+#*******************************************************************************************************************************
+#       I3 PANNEL You can use i3blocks, i3bar, polybar, tint2
+#*******************************************************************************************************************************
+
+# BAR FONTS
+set $font-1 Iosevka Nerd Font 10
+set $font-2 Hack Nerd Font 10
+set $font-3 SpaceMono Nerd Font 10
+set $font-4 Monofurbold Nerd Font 8
+
+output "*" bg  ~/.wallpapers/main fill
+
+default_border pixel 1
+default_floating_border pixel 1
+
+exec_always {
+        ~/.bin/wal.sh
+        ~/.bin/autostart.sh
+}

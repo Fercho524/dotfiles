@@ -1,0 +1,113 @@
+configuration {
+	  font:							              "Noto Sans 8";
+    show-icons:                     true;
+	  icon-theme: 					          "Dream";
+    display-drun: 					        "  ";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+	  background:                     @background;
+    hide-scrollbar: 				        false;
+	  sidebar-mode: 					        true;
+    padding:                        0 0 0 0;
+}
+
+@import "../themes/colors.rasi"
+
+* {
+    text-color:                     @foreground;
+}
+
+window {
+    transparency:                   "real";
+    background:                     @background;
+    text-color:                     @foreground;
+    border:							            0px;
+    width:							            90%;
+    height:                         50%;
+    padding:                        0px;
+    location:                       center;
+    x-offset:                       0px;
+    y-offset:                       0;
+}
+
+prompt {
+    enabled: 						            true;
+	  padding: 						            0.25% 0.75% 0% -0.25%;
+	  background-color: 			    	  @background;
+	  text-color: 					          @foreground;
+	  font:							              "FantasqueSansMono Nerd Font 12";
+}
+
+entry {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    placeholder-color:              @foreground;
+    expand:                         true;
+    horizontal-align:               center;
+    placeholder:                    "";
+    padding:                        -0.15% 0% 0% 0%;
+    blink:                          true;
+}
+
+inputbar {
+	  children: 						          [ prompt, entry ];
+    background-color:               @background-light;
+    text-color:                     @foreground;
+    expand:                         false;
+	  border:							            0% 0% 0% 0%;
+    border-radius:                  100%;
+    margin:                         0% 10% 3% 10%;
+    padding:                        2%;
+}
+
+listview {
+    background:                     @background;
+    columns:                        6;
+    lines:	                        6;
+    spacing:                        5%;
+    cycle:                          true;
+    dynamic:                        true;
+    spacing:                        5%;
+    layout:                         vertical;
+}
+
+mainbox {
+    background:                     @background;
+    border:							            0% 0% 0% 0%;
+    border-radius:                  0% 0% 0% 0%;
+    border-color:					          @accent;
+    vertical-align:                 center;
+    children:                       [ inputbar, listview ];
+    padding:                        2% 5% 2% 5%;
+}
+
+element {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  1%;
+    padding:                        2% 2% 2% 2%;
+}
+
+element-icon {
+    size:                           50px;
+    border:                         0px;
+    horizontal-align:               0.5;
+    background-color:               #00000000;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    text-color:                     @foreground;
+    background-color:               #00000000;
+    margin:                         0.5% 0.5% -0.5% 0.5%;
+}
+
+element selected {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+	  border:							            0% 0% 0% 0%;
+    border-radius:                  1%;
+}

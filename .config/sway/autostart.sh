@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if [[ `pgrep lxpolkit` ]]; then
-	echo;
-else
-	lxpolkit &
-fi
+/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 if [ `pgrep waybar`]; then
 	killall -q waybar

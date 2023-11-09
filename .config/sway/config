@@ -159,7 +159,7 @@ assign [class="nemo"] $ws3
 
 # DEFAULT APPS
 set $terminal kitty
-set $files nemo
+set $files nautilus
 set $browser brave
 
 # APPS LEYBINDINGS
@@ -178,7 +178,7 @@ bindsym $mod+F6 exec wlsunset -T 4500
 
 
 # APPLETS
-set $launcher bash .config/rofi/launcher.sh
+set $launcher ~/.config/rofi/launcher.sh
 set $powermenu bash .config/rofi/powermenu.sh
 #set $screenshot bash .config/rofi/screenshot.sh
 #set $volume bash .config/rofi/volume.sh
@@ -194,7 +194,7 @@ set $window bash .config/rofi/window.sh
 set $run bash .config/rofi/run.sh
  
 # APPLETS KEYBINDINGS
-bindsym $mod+m exec $launcher ## Done
+bindsym $mod+m exec $launcher
 bindsym $mod+x exec $powermenu ## Done
 #bindsym $mod+Print exec $screenshot ## Done
 #bindsym $mod+F1 exec $volume ## Done
@@ -267,7 +267,7 @@ set $font-2 Hack Nerd Font 10
 set $font-3 SpaceMono Nerd Font 10
 set $font-4 Monofurbold Nerd Font 8
 
-output "*" bg  ~/.wallpapers/main fill
+output "*" bg  ~/Pictures/Wallpapers/Desktop/main fill
 
 default_border pixel 1
 default_floating_border pixel 1
@@ -275,4 +275,5 @@ default_floating_border pixel 1
 exec_always {
         ~/.bin/wal.sh
         ~/.bin/autostart.sh
+
 }

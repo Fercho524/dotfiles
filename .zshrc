@@ -1,38 +1,60 @@
-# OH MY ZSH
-export ZSH="/home/fercho/.oh-my-zsh"
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+###########################################################################################
+#                                     S Y S T E M
+###########################################################################################
+
+
+export LANG=es_MX.UTF-8
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$PATH:/home/fercho/.local/bin"
+
+export ARCHFLAGS="-arch x86_64"
+
 export CLASSPATH=/usr/lib/jvm/
 export JAVA5_BOOTCLASSES=/usr/lib/jvm/java-17-openjdk/lib
-export LANG=es_MX.UTF-8
 
-# ZSH CONFIG AND PLUGINS
+
+
+###########################################################################################
+#                                     O H M Y Z S H
+###########################################################################################
+
+
+export ZSH="$HOME/.oh-my-zsh"
+
 ZSH_THEME="aussiegeek"
+CASE_SENSITIVE="false"
 plugins=(git)
-source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Samba Mount $SambaShare $mountDestiny
-function mountsmb(){
-    sudo mount.cifs //192.168.1.68/RecursosSistema Biblioteca \
-    -o user=pi,\
-    pass=ganso524,\
-    uid=1000,gid=984,\
-    forceuid,forcegid
-}
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+###########################################################################################
+#                                     A L I A S E S
+###########################################################################################
 
 # Config aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
 
 # Program Aliases
-alias ls=exa
+alias ls="exa --icons"
 alias cls=clear
-alias cat=ccat
-alias tree=exa -T
+alias cat=bat
 
-# Config aliases
-alias bspwmconfig="nvim ~/.config/bspwm/bspwmrc"
-alias sxhkdconfig="nvim ~/.config/sxhkd/sxhkdrc"
-alias i3config="nvim ~/.config/i3/config"
-alias swayconfig="nvim ~/.config/sway/config"alias smbMount=sudo mount.cifs //192.168.1.68/Shared Shared -o user=pi,pass=ganso524,uid=1000,gid=984,forceuid,forcegid
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/fercho/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/fercho/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/fercho/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/fercho/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

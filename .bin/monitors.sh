@@ -11,4 +11,3 @@ if [[ $1 = "on" ]]; then
 elif [[ $1 = "off" ]]; then 
 	xrandr --output eDP-1 --primary --mode 1366x768 --pos 0x1080 --output DP-2 --off
 fi
-

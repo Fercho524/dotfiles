@@ -2,6 +2,6 @@
 pkill dunst
 dunst -config ~/.config/dunst/dunstrc &
 
-notify-send -u critical "Test message: critical test 1"
+notify-send -u normal "Hola chicos, utilicemos este comentario como foro para compartir las propuestas de variables para incluir en el dataset de opiniones y utilizar el Clasificador Naive Bayes"
 notify-send -u normal "Test message: normal test 2"
 

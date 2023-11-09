@@ -1,90 +1,118 @@
 #!/usr/bin/env bash
 
-## Author  : Aditya Shakya
-## Mail    : adi1090x@gmail.com
-## Github  : @adi1090x
-## Twitter : @adi1090x
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
 
-rofi_command="rofi -theme ~/.config/rofi/applets/powermenu.rasi"
+# Import Current Theme
+DIR="$HOME/.config/rofi"
+STYLE="onedark"
 
-uptime=$(uptime -p | sed -e 's/up //g')
+
+RASI="$DIR/themes/$STYLE/powermenu.rasi"
+CNFR="$DIR/themes/$STYLE/confirm.rasi"
+
+# Theme Elements
+prompt="`hostname` (`echo $DESKTOP_SESSION`)"
+mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend=""
-logout=""
+layout=`cat ${RASI} | grep 'USE_ICON' | cut -d'=' -f2`
+if [[ "$layout" == 'NO' ]]; then
+	option_1=" Lock"
+	option_2=" Logout"
+	option_3=" Suspend"
+	option_4=" Hibernate"
+	option_5=" Reboot"
+	option_6=" Shutdown"
+else
+	option_1=""
+	option_2=""
+	option_3=""
+	option_4=""
+	option_5=""
+	option_6=""
+fi
+cnflayout=`cat ${CNFR} | grep 'USE_ICON' | cut -d'=' -f2`
+if [[ "$cnflayout" == 'NO' ]]; then
+	yes=' Yes'
+	no=' No'
+else
+	yes=''
+	no=''
+fi
 
-# Confirmation
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p "$prompt" \
+		-mesg "$mesg" \
+		-markup-rows \
+		-theme ${RASI}
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
+}
+
+# Confirmation CMD
+confirm_cmd() {
+	rofi -dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you Sure?' \
+		-theme ${CNFR}
+}
+
+# Ask for confirmation
 confirm_exit() {
-	rofi -dmenu -i -no-fixed-num-lines -p "Are You Sure? : " \
-		-theme "~/.config/rofi/applets/confirm.rasi"
+	echo -e "$yes\n$no" | confirm_cmd
 }
 
-# Message
-msg() {
-	rofi -theme "~/.config/rofi/applets/message.rasi" -e "Available Options  -  yes / y / no / n"
+# Confirm and execute
+confirm_run () {	
+	selected="$(confirm_exit)"
+	if [[ "$selected" == "$yes" ]]; then
+        ${1} && ${2} && ${3}
+    else
+        exit
+    fi	
 }
 
-# Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+# Execute Command
+run_cmd() {
+	if [[ "$1" == '--opt1' ]]; then
+		betterlockscreen --lock
+	elif [[ "$1" == '--opt2' ]]; then
+		confirm_run 'bspc quit'
+	elif [[ "$1" == '--opt3' ]]; then
+		confirm_run 'mpc -q pause' 'pulsemixer --mute' 'betterlockscreen --suspend'
+	elif [[ "$1" == '--opt4' ]]; then
+		confirm_run 'systemctl hibernate'
+	elif [[ "$1" == '--opt5' ]]; then
+		confirm_run 'systemctl reboot'
+	elif [[ "$1" == '--opt6' ]]; then
+		confirm_run 'systemctl poweroff'
+	fi
+}
 
-chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
-case $chosen in
-$shutdown)
-	ans=$(confirm_exit &)
-	if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-		systemctl poweroff
-	elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-		exit 0
-	else
-		msg
-	fi
-	;;
-$reboot)
-	ans=$(confirm_exit &)
-	if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-		systemctl reboot
-	elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-		exit 0
-	else
-		msg
-	fi
-	;;
-$lock)
-	if [[ -f /usr/bin/i3lock-fancy ]]; then
-		i3lock-fancy
-	elif [[ -f /usr/bin/betterlockscreen ]]; then
-		betterlockscreen -l
-	fi
-	;;
-$suspend)
-	ans=$(confirm_exit &)
-	if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-		mpc -q pause
-		amixer set Master mute
-		systemctl suspend
-	elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-		exit 0
-	else
-		msg
-	fi
-	;;
-$logout)
-	ans=$(confirm_exit &)
-	if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-		if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
-			openbox --exit
-		elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
-			bspc quit
-		elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
-			i3-msg exit
-		fi
-	elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-		exit 0
-	else
-		msg
-	fi
-	;;
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
+    $option_1)
+		run_cmd --opt1
+        ;;
+    $option_2)
+		run_cmd --opt2
+        ;;
+    $option_3)
+		run_cmd --opt3
+        ;;
+    $option_4)
+		run_cmd --opt4
+        ;;
+    $option_5)
+		run_cmd --opt5
+        ;;
+    $option_6)
+		run_cmd --opt6
+        ;;
 esac

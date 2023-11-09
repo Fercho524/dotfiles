@@ -1,11 +1,15 @@
 #!/bin/bash
 
-if [[ $(echo $DESKTOP_SESSION) = "i3" || $(echo $DESKTOP_SESSION) = "bspwm" || $(echo $DESKTOP_SESSION) = "bspwm" ]]; then
+if [[ $(echo $DESKTOP_SESSION) = "i3" || $(echo $DESKTOP_SESSION) = "openbox" || $(echo $DESKTOP_SESSION) = "bspwm" ]]; then
 	# Cosas que no conozco
 	#dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 	#clipmenud &
 	#xsetroot -cursor_name left_ptr &
 	#xset r rate 230 30
+	
+	# Para conocer la telca que estás usando 
+	# xev | sed -ne '/^KeyPress/,/^$/p'
+	
 	batticon=cbatticon
 	polkit_manager=/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 	#polkit_manager=lxpolkit
@@ -22,13 +26,15 @@ if [[ $(echo $DESKTOP_SESSION) = "i3" || $(echo $DESKTOP_SESSION) = "bspwm" || $
 	# Screenlock
 	xss-lock -- i3lock-fancy &
 
+	xset -dpms s off 
+
 	# For java aplications
 	wmname LG3D
 
 	if [[ $(pgrep picom) ]]; then
 		echo
 	else
-		picom --experimental-backends --blur-size 10 &
+		picom &
 	fi
 
 	if [[ $(pgrep nm-applet) ]]; then
@@ -40,7 +46,7 @@ if [[ $(echo $DESKTOP_SESSION) = "i3" || $(echo $DESKTOP_SESSION) = "bspwm" || $
 	if [[ $(pgrep udiskie) ]]; then
 		echo
 	else
-		udiskie -t &
+		udiskie -t -A -N &
 	fi
 
 	# In fedora cbatticon is not full compatible, in that case you have to use battray
@@ -68,7 +74,7 @@ if [[ $(echo $DESKTOP_SESSION) = "i3" || $(echo $DESKTOP_SESSION) = "bspwm" || $
 	if [ $($(pgrep tint2)) ]; then
 		killall -q tint2
 	else
-		bash ~/.config/tint2/tint2.sh vertical &
+		bash ~/.config/tint2/tint2.sh horizontal &
 	fi
 
 	# Loading the VEIKK S640 Driver
@@ -85,7 +91,7 @@ elif [[ $(echo $DESKTOP_SESSION) = "sway" ]]; then
 	if [[ $(pgrep udiskie) ]]; then
 		echo
 	else
-		udiskie -t &
+		udiskie -t -A -N &
 	fi
 
 	if [[ $(pgrep lxpolkit) ]]; then
@@ -110,4 +116,3 @@ elif [[ $(echo $DESKTOP_SESSION) = "sway" ]]; then
 	gsettings set org.gnome.desktop.interface cursor-theme 'Breeze'
 	gsettings set org.gnome.desktop.interface font-name "Cantarell Regular 10"
 fi
-

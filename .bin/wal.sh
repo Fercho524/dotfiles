@@ -19,9 +19,16 @@ function magic_appareance(){
       wal -i $image -n -e -q   
       copy_config_files 
       bspc wm -r
+
+   elif [[ `echo $DESKTOP_SESSION` = "openbox" ]]; then
+      image=`cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2` 
+      wal -i $image -n -e -q   
+      copy_config_files
+      ~/.bin/autostart.sh
+      openbox --restart
    
    elif [[ `echo $DESKTOP_SESSION` = "sway" ]]; then
-      image=~/.wallpapers/main
+      image=~/Pictures/Wallpapers/Desktop/main
       wal -i $image  -n -q -e -c     
       wal -i $image -q -e -n
       copy_config_files

@@ -138,7 +138,7 @@ border_color_pressed = #a1a8b9 0
 #-------------------------------------
 # Panel
 panel_items = PPTPEPPPPPP:S:C
-panel_size = 100% 45
+panel_size = 100% 50
 panel_margin = 0 0
 panel_padding = 7 7 7
 panel_background_id = 6
@@ -180,7 +180,7 @@ taskbar_always_show_all_desktop_tasks = 1
 taskbar_name_padding = 6 0
 taskbar_name_background_id = 7
 taskbar_name_active_background_id = 4
-taskbar_name_font = Iosevka 17
+taskbar_name_font = SpaceMono NF 15
 taskbar_name_font_color = #f9f9f9 100
 taskbar_name_active_font_color = #f9f9f9 100
 taskbar_distribute_size = 0
@@ -191,11 +191,11 @@ task_align = left
 # Task
 task_text = 0
 task_icon = 1
-task_centered = 1
+task_centered = 0
 urgent_nb_of_blink = 3
 task_maximum_size = 35 35
-task_padding = 4 4 4
-task_font = Sans 0
+task_padding = 5 5
+task_font = SpaceMono NF 25
 task_tooltip = 1
 task_thumbnail = 1
 task_thumbnail_size = 210
@@ -249,33 +249,32 @@ separator_padding = 1 0
 #-------------------------------------
 # WINDOW, RUN, DRUN LAUNCHER
 button = new
-button_text = 
+button_text =
 button_tooltip = Open App Launcher
 button_lclick_command = ~/.config/rofi/launcher.sh
 button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = SpaceMono NF 15
 button_font_color = $foreground 100
-button_padding = 0 0 0 0
+button_padding = 5 5
 button_background_id = 5
-button_centered = 1
-button_max_icon_size = 0
+button_centered = 0
 
 #-------------------------------------
 # TASKS
 button = new
-button_text = 
+button_text = 
 button_tooltip = Switch Between Opened Windows
 button_lclick_command = ~/.config/rofi/window.sh
 button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = SpaceMono NF 15
 button_font_color = #f9f9f9 100
-button_padding = 0 0
+button_padding = 5 5
 button_background_id = 5
 button_centered = 1
 button_max_icon_size = 0
@@ -290,7 +289,7 @@ button_rclick_command = ~/.bin/wal.sh
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = SpaceMono NF 15
 button_font_color = #f9f9f9 100
 button_padding = 0 0
 button_background_id = 4
@@ -307,7 +306,7 @@ button_rclick_command = alacritty
 button_mclick_command = xterm
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = SpaceMono NF 18
 button_font_color = #f9f9f9 100
 button_padding = 0 0
 button_background_id = 4
@@ -324,7 +323,7 @@ button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = SpaceMono NF 17
 button_font_color = #f9f9f9 100
 button_padding = 0 0
 button_background_id = 4
@@ -334,16 +333,16 @@ button_max_icon_size = 0
 #-------------------------------------
 # EMOJI CLIPBOARD
 button = new
-button_text =
+button_text = 󰱱 
 button_tooltip = Open emoji clipboard selector
 button_lclick_command = rofi -show emoji -modi emoji -theme ~/.config/rofi/applets/emoji.rasi
 button_rclick_command = rofi -show emoji -modi emoji -theme ~/.config/rofi/applets/emoji.rasi
 button_mclick_command = rofi -show emoji -modi emoji -theme ~/.config/rofi/applets/emoji.rasi
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = SpaceMono NF 17
 button_font_color = #f9f9f9 100
-button_padding = 0 0
+button_padding = 4 4
 button_background_id = 4
 button_centered = 1
 button_max_icon_size = 0
@@ -351,7 +350,7 @@ button_max_icon_size = 0
 #-------------------------------------
 # APPS
 button = new
-button_text =
+button_text = 󰀻
 button_tooltip = Open your favorite apps
 button_lclick_command = ~/.config/rofi/apps.sh
 button_rclick_command = ~/.config/rofi/quicklinks.sh
@@ -414,8 +413,8 @@ border_width = 0
 border_sides =
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = $color1 100
-border_color = $color1 100
+background_color = $color2 100
+border_color = $color2 100
 gradient_id = 0
 background_color_hover = $foreground 82
 border_color_hover = $foreground 82
@@ -423,40 +422,40 @@ background_color_pressed = $color1 100
 border_color_pressed = $color1 100
 
 # Background 3: Active desktop name, Inactive desktop name, Urgent task
-rounded = 8
+rounded = 7
 border_width = 0
 border_sides =
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #f9f9f9 100
-border_color = #f9f9f9 40
+background_color = $color2 100
+border_color = $color2 40
 gradient_id = 0
 background_color_hover = #f9f9f9 88
 border_color_hover = #f9f9f9 40
-background_color_pressed = #f9f9f9 100
-border_color_pressed = #f9f9f9 78
+background_color_pressed = $color2 100
+border_color_pressed = $color2 78
 
 # Background 4: Active taskbar, Clock, Inactive taskbar, Panel
-rounded = 8
+rounded = 6
 border_width = 0
 border_sides =
 border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #0a0a0a 80
 border_color = #000000 0
-background_color_hover = #000000 0
-border_color_hover = #000000 0
-background_color_pressed = #000000 0
-border_color_pressed = #000000 0
+background_color_hover = #a1a8b9 0
+border_color_hover = #a1a8b9 0
+background_color_pressed = #a1a8b9 0
+border_color_pressed = #a1a8b9 0
 
 # Background 5:
-rounded = 6
+rounded = 12
 border_width = 0
 border_sides =
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #f9f9f9 0
-border_color = #a1a8b9 0
+background_color = $color3 0
+border_color = $color3 0
 gradient_id = 1
 background_color_hover = #63c5ea 0
 border_color_hover = #a1a8b9 0
@@ -488,10 +487,10 @@ border_content_tint_weight = 0
 background_content_tint_weight = 0
 background_color = #0a0a0a 0
 border_color = #000000 0
-background_color_hover = #000000 0
-border_color_hover = #000000 0
-background_color_pressed = #000000 0
-border_color_pressed = #000000 0
+background_color_hover = $cursor 0
+border_color_hover = $cursor 0
+background_color_pressed = $cursor 0
+border_color_pressed = $cursor 0
 
 # Background 8: Systray
 rounded = 15
@@ -506,17 +505,30 @@ border_color_hover = #a1a8b9 0
 background_color_pressed = $color1 100
 border_color_pressed = #a1a8b9 0
 
+# Background 9
+rounded = 10
+border_width = 0
+border_sides =
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+background_color = $color5 100
+border_color = #a1a8b9 0
+background_color_hover = $color5 100
+border_color_hover = #a1a8b9 0
+background_color_pressed = $color5 100
+border_color_pressed = #a1a8b9 0
+
 #-------------------------------------
 # Panel
-panel_items = PPTPEPPPPPP:S:C
-panel_size = 100% 45
+panel_items = PPTPPPPPPEEEEE:S:C
+panel_size = 100% 43
 panel_margin = 0 0
 panel_padding = 7 7 7
 panel_background_id = 6
 wm_menu = 0
 panel_dock = 0
 panel_pivot_struts = 0
-panel_position = bottom center horizontal
+panel_position = top center horizontal
 panel_layer = bottom
 panel_monitor = all
 panel_shrink = 0
@@ -548,10 +560,10 @@ taskbar_hide_inactive_tasks = 0
 taskbar_hide_different_monitor = 0
 taskbar_hide_different_desktop = 0
 taskbar_always_show_all_desktop_tasks = 1
-taskbar_name_padding = 8 2
+taskbar_name_padding = 12 0
 taskbar_name_background_id = 4
 taskbar_name_active_background_id = 4
-taskbar_name_font = Iosevka 20
+taskbar_name_font = Iosevka 30
 taskbar_name_font_color = #f9f9f9 100
 taskbar_name_active_font_color = #f9f9f9 100
 taskbar_distribute_size = 0
@@ -564,15 +576,15 @@ task_text = 0
 task_icon = 1
 task_centered = 1
 urgent_nb_of_blink = 3
-task_maximum_size = 35 35
-task_padding = 4 4 4
-task_font = Sans 0
+task_maximum_size = 50
+task_padding = 12 4
+task_font = Iosevka 30
 task_tooltip = 1
 task_thumbnail = 1
 task_thumbnail_size = 210
-task_background_id = 7
-task_active_background_id = 4
-task_urgent_background_id = 5
+task_background_id = 5
+task_active_background_id = 2
+task_urgent_background_id = 3
 mouse_left = toggle_iconify
 mouse_middle = none
 mouse_right = close
@@ -620,17 +632,17 @@ separator_padding = 1 0
 #-------------------------------------
 # WINDOW, RUN, DRUN LAUNCHER
 button = new
-button_text = 
+button_text = 
 button_tooltip = Click to open app launcher
 button_lclick_command = ~/.config/rofi/launcher.sh
 button_rclick_command = ~/.config/rofi/run.sh
 button_mclick_command = ~/.config/rofi/window.sh
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = Iosevka 30
 button_font_color = #f9f9f9 100
-button_padding = 8
-button_background_id = 5
+button_padding =12 0
+button_background_id = 3
 button_centered = 1
 button_max_icon_size = 0
 
@@ -644,27 +656,10 @@ button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = Iosevka Bold 30
 button_font_color = #f9f9f9 100
-button_padding = 8 0
-button_background_id = 5
-button_centered = 1
-button_max_icon_size = 0
-
-#-------------------------------------
-# WALLPAPER TOOL
-button = new
-button_text = 
-button_tooltip = Change current wallpaper │ Generate wallpaper
-button_lclick_command = nitrogen
-button_rclick_command = nitrogen
-button_mclick_command =
-button_uwheel_command =
-button_dwheel_command =
-button_font = SpaceMono NF 20
-button_font_color = #f9f9f9 100
-button_padding = 8 0
-button_background_id = 4
+button_padding = 12 0
+button_background_id = 3
 button_centered = 1
 button_max_icon_size = 0
 
@@ -678,9 +673,26 @@ button_rclick_command = alacritty
 button_mclick_command = xterm
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = Iosevka 30
 button_font_color = #f9f9f9 100
-button_padding = 8 0
+button_padding = 12 0
+button_background_id = 4
+button_centered = 1
+button_max_icon_size = 0
+
+#-------------------------------------
+# WALLPAPER TOOL
+button = new
+button_text = 
+button_tooltip = Change current wallpaper │ Generate wallpaper
+button_lclick_command = nitrogen
+button_rclick_command = nitrogen
+button_mclick_command =
+button_uwheel_command =
+button_dwheel_command =
+button_font = Iosevka 30
+button_font_color = #f9f9f9 100
+button_padding = 12 0
 button_background_id = 4
 button_centered = 1
 button_max_icon_size = 0
@@ -695,9 +707,9 @@ button_rclick_command =
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = Iosevka 30
 button_font_color = #f9f9f9 100
-button_padding = 8 0
+button_padding = 12 0
 button_background_id = 4
 button_centered = 1
 button_max_icon_size = 0
@@ -712,9 +724,9 @@ button_rclick_command = rofi -show emoji -modi emoji -theme ~/.config/rofi/apple
 button_mclick_command = rofi -show emoji -modi emoji -theme ~/.config/rofi/applets/emoji.rasi
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = Iosevka 30
 button_font_color = #f9f9f9 100
-button_padding = 8 0
+button_padding = 12 0
 button_background_id = 4
 button_centered = 1
 button_max_icon_size = 0
@@ -729,13 +741,60 @@ button_rclick_command = ~/.config/rofi/quicklinks.sh
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
-button_font = SpaceMono NF 20
+button_font = Iosevka 25
 button_font_color = #f9f9f9 100
-button_padding = 8 0
+button_padding = 12 0
 button_background_id = 4
 button_centered = 1
 button_max_icon_size = 0
 
+#-------------------------------------
+# Executor 1
+execp = new
+execp_command = ~/.config/tint2/scripts/netspeed.sh
+execp_font = Iosevka Bold 10
+execp_font_color = #2f343f 100
+execp_padding = 12 0
+execp_background_id = 3
+execp_interval = 2
+execp_border_radius = 16
+execp_continuous = 1
+
+#-------------------------------------
+# Executor 2
+execp = new
+execp_command = ~/.config/tint2/scripts/memory.sh
+execp_font = Iosevka Bold 10
+execp_font_color = #2f043f 100
+execp_padding = 12 0
+execp_background_id = 1
+execp_interval = 2
+execp_border_radius = 16
+execp_continuous = 1
+
+#-------------------------------------
+# Executor 3
+execp = new
+execp_command = ~/.config/tint2/scripts/cpu.sh
+execp_font = Iosevka 10
+execp_font_color = #2f043f 100
+execp_padding = 12 0
+execp_background_id = 2
+execp_interval = 2
+execp_border_radius = 16
+execp_continuous = 1
+
+#-------------------------------------
+# Executor 3
+execp = new
+execp_command = ~/.config/tint2/scripts/volume.sh
+execp_font = Iosevka 10
+execp_font_color = #2f043f 100
+execp_padding = 12 0
+execp_background_id = 9
+execp_interval = 1
+execp_border_radius = 16
+execp_continuous = 1
 
 -------------------------------------
 # Tooltip
@@ -1161,9 +1220,16 @@ if [[ $DESKTOP_SESSION = "openbox" || $DESKTOP_SESSION = "bspwm" ]]; then
         #bspc config left_padding 0
         elif [[ $1 = "horizontal" ]]; then
         killall -q tint2
-        bspc config left_padding 0
+        bspc config top_padding 1
+        bspc config left_padding 1
+        bspc config bottom_padding 1
+        
         horizontal
-        #bspc config bottom_padding 0
+        
+        elif [[ $1 = "powerline" ]]; then
+        killall -q tint2
+        bspc config left_padding 0
+        powerLine
     fi
 fi
 

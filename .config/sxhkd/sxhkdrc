@@ -15,7 +15,7 @@ super + Return
   kitty
 
 super  e  
-  nemo
+  nautilus
 
 super + 0
   sh ~/.bin/wal.sh 
@@ -49,10 +49,10 @@ super + F5
   redshift -x
 
 # SCREENSHOTS, flameshot is the best fox xssesions
-Print
-  flameshot full -p ~/.screenshots
-
 super + Print
+  flameshot full -p ~/Pictures/Screenshots
+
+Print
   flameshot gui
 
 ######################################################################
@@ -143,15 +143,6 @@ super + Prior
 ######################################################################
 #         CUSTOM ATACHMENDS
 ######################################################################
-
-super + alt + n
-  code ~/Diario
-
-super + alt + a
-  code ~/Apuntes
-
-super + alt + d
-  code ~/Desarrollo 
 
 super + F2
   ~/.bin/monitors.sh on 

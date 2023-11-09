@@ -22,12 +22,13 @@ window {
     background:                     @background;
     text-color:                     @foreground;
     border:							0px;
-    width:							80%;
-    height:                         80%;
+    width:							99%;
+    height:                         93%;
     padding: 0px;
+    border-radius:               10px;
     location:                       center;
     x-offset:                       0px;
-    y-offset:                       2%;
+    y-offset:                       3%;
 }
 
 prompt {

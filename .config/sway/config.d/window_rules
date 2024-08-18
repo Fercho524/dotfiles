@@ -1,0 +1,20 @@
+##################################################################################################
+#       █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀█ █░█ █░░ █▀▀ █▀
+#       ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █▀▄ █▄█ █▄▄ ██▄ ▄█
+##################################################################################################
+
+
+# BORDERS
+for_window [class="^.*"] border pixel 2
+
+# GAPS
+gaps inner 2
+gaps outer 2
+
+# WORKSPACES
+assign [class="zoom"] $ws5
+assign [class="nemo"] $ws3
+assign [class="nautilus"] $ws3
+
+# SPECIFYC RULES
+for_window [class="Xdg-desktop-portal-gtk"] floating enable, border none, resize set 1000 750, move position center

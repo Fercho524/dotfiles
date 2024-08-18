@@ -15,31 +15,28 @@ super + Return
   kitty
 
 super  e  
-  nautilus
+  ~/.config/openbox/nautilus.sh
 
 super + 0
-  sh ~/.bin/wal.sh 
-
-super + b
-  brave
+  sh ~/.bin/wal.sh
 
 # ROFI
 
 # Show the app menu
 super + m
-  ~/.config/rofi/launcher.sh 
+  ~/.config/rofi/launchers/launcher.sh drun
 
 # invoke a powermenu
 super + x
-  ~/.config/rofi/powermenu.sh
+  ~/.config/rofi/applets/bin/powermenu.sh
 
 # Run a fast command
 super + r
-   ~/.config/rofi/run.sh
+  ~/.config/rofi/launchers/launcher.sh run
 
 # Switch between windows
 super + Tab
-  ~/.config/rofi/window.sh
+  ~/.config/rofi/launchers/launcher.sh window
 
 # REDSHIFT, night light
 super + F6 
@@ -86,20 +83,20 @@ super + l
 # VOLUME, use  pamixer or pactl
 # Up volume : pamixer -i 5
 XF86AudioRaiseVolume 
-  pamixer -i 5
+  ~/.bin/volume.sh up
 
   #pactl set-sink-volume @DEFAULT_SINK@ -5%
 # Low volume :pamixer -d 5
 XF86AudioLowerVolume 
-  pamixer -d 5 
+  ~/.bin/volume.sh down
 
 # Mute speaker : pamixer --t --get-default-sink
 XF86AudioMute
-  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  ~/.bin/volume.sh mute
   
 # Mute microphone : pamixer -t --default-source
 XF86AudioMicMute
-  pactl set-source-mute @DEFAULT_SOURCE@  toggle
+  ~/.bin/volume.sh mic
 
 # BRIGHTNESS, only works for laptops with FN key
 XF86MonBrightnessUp
@@ -149,3 +146,7 @@ super + F2
 
 super +F3
   ~/.bin/monitors.sh off 
+
+
+super + p
+  ~/.bin/colorpicker.sh

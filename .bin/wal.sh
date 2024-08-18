@@ -1,44 +1,45 @@
-#!/bin/sh 
+#!/bin/bash
 
-function copy_config_files(){ 
-   cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors.conf
-   cp ~/.cache/wal/colors-rofi-dark.rasi ~/.config/rofi/themes/wal.rasi  
-   #~/.bin/zathurawal/genzathurarc > ~/.config/zathura/zathurarc
-}
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-function magic_appareance(){
-   
-   if [[ `echo $DESKTOP_SESSION` = "i3" ]]; then
-      image=`cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2` 
-      wal -i $image -n -q -e     
-      copy_config_files 
-      i3 restart
-   
-   elif [[ `echo $DESKTOP_SESSION` = "bspwm" ]]; then
-      image=`cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2` 
-      wal -i $image -n -e -q   
-      copy_config_files 
-      bspc wm -r
+# Get the image path
+if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
+   image=$(cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2)
+elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
+   image="$(cat ~/.config/waypaper/config.ini | grep "wallpaper =" | cut -d "=" -f 2)"
+fi
 
-   elif [[ `echo $DESKTOP_SESSION` = "openbox" ]]; then
-      image=`cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2` 
-      wal -i $image -n -e -q   
-      copy_config_files
-      ~/.bin/autostart.sh
-      openbox --restart
-   
-   elif [[ `echo $DESKTOP_SESSION` = "sway" ]]; then
-      image=~/Pictures/Wallpapers/Desktop/main
-      wal -i $image  -n -q -e -c     
-      wal -i $image -q -e -n
-      copy_config_files
-   elif [[ `echo $DESKTOP_SESSION` = "gnome" ]]; then
-      image=~/.config/background
-      #rm -rf ~/.cache/wal
-      wal -i $image  -n -q -e
-      #copy_config_files
-   fi
+# Generate color palette
+zsh -c "wal -i $(echo $image) -e -n"
 
-}
+# Reinicia sólo lo necesario, no todo el entorno
+if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
+   # Tint 2
+   killall tint2
+   ~/.config/tint2/tint2.sh
+elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
+   # Waybar
+   killall waybar
+   waybar &
 
-magic_appareance
+   # Notification Pannel
+   killall swaync
+   swaync &
+fi
+
+# Get the colors
+source ~/.cache/wal/colors.sh
+
+# Kitty Theme
+cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors.conf
+
+# Rofi Colors
+python ~/.config/rofi/walrofi.py
+
+# Change Icon Colors Acording to Color 1
+icon_colors=$(python ~/.bin/wallpy.py $color1)
+variant=dark
+
+gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
+sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
+sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini

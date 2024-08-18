@@ -1,118 +1,115 @@
 #!/bin/bash
 
-if [[ $(echo $DESKTOP_SESSION) = "i3" || $(echo $DESKTOP_SESSION) = "openbox" || $(echo $DESKTOP_SESSION) = "bspwm" ]]; then
-	# Cosas que no conozco
-	#dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-	#clipmenud &
-	#xsetroot -cursor_name left_ptr &
-	#xset r rate 230 30
-	
-	# Para conocer la telca que estás usando 
-	# xev | sed -ne '/^KeyPress/,/^$/p'
-	
-	batticon=cbatticon
-	polkit_manager=/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
-	#polkit_manager=lxpolkit
-	veikk_driver=/lib/vktablet/vktablet
+source ~/.bin/env.sh
 
-	setxkbmap latam
+#################################################################
+# 			TEMAS GTK Y QT
+#################################################################
+
+gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+gsettings set org.gnome.desktop.interface icon-theme "$GTK_ICON_THEME"
+gsettings set org.gnome.desktop.interface cursor-theme "$GTK_CURSOR_THEME"
+gsettings set org.gnome.desktop.interface font-name "$GTK_FONT"
+
+#################################################################
+# 			DRIVERS AND DAEMONS
+#################################################################
+
+# Aplicaciones de Java
+export _JAVA_AWT_WM_NONREPARENTING=1
+wmname LG3D
+
+# Graphic Tablet Driver
+pgrep vktablet || $veikk_driver &
+
+# Auth Dialog Daemon
+pgrep $polkit_manager || $polkit_manager &
+
+#################################################################
+# 			SYSTRAY AND PANNEL
+#################################################################
+
+# Devices Manager
+killall udiskie
+udiskie -t -A -N &
+
+# Bluetooth
+pgrep blueman-applet || blueman-applet &
+
+# Network Information Applet
+pgrep nm-applet || nm-applet &
+
+if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
+
+	#################################################################
+	# 			XORG CONFIG
+	#################################################################
+
+	# Tiempo de inactividad : tiempo para apagar la pantalla (s) y tiempo para suspender.
+	#xset dpms 300 600
+	xset dpms s off off
+
+	# Tiempo de protector de pantallla, usar "xset s off" para desactivar el salvapantallas
+	#xset s on
+	#xset s 6000
+	#xset s noblank
+	xset s off
+
+	# Velocidad del teclado, 250 caracteres/segundo, con 30 ms de retardo
+	#xset r rate 230 30
+
+	# Configura el bloqueador automático de pantalla
+	# xss-lock -- i3lock-fancy &
+
+	# Historial de portapapeles
+	clipmenud &
+
+	#################################################################
+	# 			CONFIGURACIONES COSMÉTICAS
+	#################################################################
+
+	# Wallpaper
 	nitrogen --restore
 
-	# Time on screen
-	xset s off &# don't activate screensaver
-	xset -dpms &# disable DPMS (Energy Star) features.
-	xset s noblank &# don't blank the video device
+	# Transparencies
+	picom --config ~/.config/picom/picom.conf &
 
-	# Screenlock
-	xss-lock -- i3lock-fancy &
+	# Pywal Daemon (Only for xorg)
+	~/.bin/walxdaemon.sh &
 
-	xset -dpms s off 
+	#################################################################
+	# 			SYSTRAY AND PANNEL
+	#################################################################
 
-	# For java aplications
-	wmname LG3D
+	# Pannel
+	pgrep tint2 || killall -q tint2
+	bash ~/.config/tint2/tint2.sh horizontal &
 
-	if [[ $(pgrep picom) ]]; then
-		echo
+	# Battery Icon
+	pgrep $batticon || $batticon &
+
+	# Volume Icon
+	pgrep volumeicon || volumeicon &
+
+elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
+	#################################################################
+	# 			SYSTRAY AND PANNEL
+	#################################################################
+
+	swaync &
+
+	waypaper --restore
+
+	# Sway ejecuta automáticamente waybar
+	if [[ $(echo $DESKTOP_SESSION) != "sway" ]]; then
+		killall waybar
+		waybar &
 	else
-		picom &
+		export WAYLAND_DEBUG=1
+		export MOZ_ENABLE_WAYLAND=1
+		export XDG_CURRENT_DESKTOP=sway
+
+		# File choosef fix
+		/usr/libexec/xdg-desktop-portal-gtk &
 	fi
-
-	if [[ $(pgrep nm-applet) ]]; then
-		echo
-	else
-		nm-applet &
-	fi
-
-	if [[ $(pgrep udiskie) ]]; then
-		echo
-	else
-		udiskie -t -A -N &
-	fi
-
-	# In fedora cbatticon is not full compatible, in that case you have to use battray
-	if [[ $(pgrep $batticon) ]]; then
-		echo
-	else
-		$batticon &
-	fi
-
-	# Dont forget the polkit if you want to use pamac, etcher or the graphical snap store, much people forget use that.
-	if [[ $(pgrep $polkit_manager) ]]; then
-		echo
-	else
-		$polkit_manager &
-	fi
-
-	if [[ `pgrep volumeicon` ]]; then
-		killall volumeicon 
-		volumeicon &
-	else
-		volumeicon &
-	fi
-
-	# You can change by polybar or lemonbar
-	if [ $($(pgrep tint2)) ]; then
-		killall -q tint2
-	else
-		bash ~/.config/tint2/tint2.sh horizontal &
-	fi
-
-	# Loading the VEIKK S640 Driver
-	if [ `pgrep vktablet` ]; then
-		killall -q vktablet 
-		$veikk_driver &
-	else 
-		$veikk_driver &
-		echo "hello"
-	fi
-
-elif [[ $(echo $DESKTOP_SESSION) = "sway" ]]; then
-
-	if [[ $(pgrep udiskie) ]]; then
-		echo
-	else
-		udiskie -t -A -N &
-	fi
-
-	if [[ $(pgrep lxpolkit) ]]; then
-		echo
-	else
-		$polkit_manager &
-	fi
-	
-	if [ `pgrep vktablet` ]; then		
-		killall -q vktablet 
-		$veikk_driver &
-	else 
-		$veikk_driver &
-		echo "hello"
-	fi
-
-	killall waybar 
-	waybar &
-
-	gsettings set org.gnome.desktop.interface gtk-theme 'Nordic-Polar-v40'
-	gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-black'
-	gsettings set org.gnome.desktop.interface cursor-theme 'Breeze'
-	gsettings set org.gnome.desktop.interface font-name "Cantarell Regular 10"
 fi

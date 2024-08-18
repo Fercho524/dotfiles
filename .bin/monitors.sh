@@ -1,9 +1,9 @@
 #!/bin/bash 
 # Only works with my setup
-
+ 
 resx1=1366
 resy1=768
-resx2=1024
+resx2=1366
 resy2=768
 
 if [[ $1 = "on" ]]; then

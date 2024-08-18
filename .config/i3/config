@@ -180,7 +180,7 @@ bindsym Print exec flameshot full -p ~/.screenshots/
 
 
 # APPLETS
-set $launcher bash .config/rofi/launcher.sh
+set $launcher bash .config/rofi/launchers/launcher.sh drun
 set $powermenu bash .config/rofi/powermenu.sh
 set $quicklinks bash .config/rofi/quicklinks.sh
 set $apps bash .config/rofi/apps.sh
@@ -189,7 +189,7 @@ set $network bash .config/rofi/network.sh
 set $emoji bash .config/rofi/emoji.sh
 set $window bash .config/rofi/window.sh
 set $run bash .config/rofi/run.sh
- 
+
 # APPLETS KEYBINDINGS
 bindsym $mod+m exec $launcher ## Done
 bindsym $mod+x exec $powermenu ## Done
@@ -254,34 +254,34 @@ set $font-4 Monofurbold Nerd Font 8
 
 # I3BLOCKS THEMES
 # static colors but stable
-# ~/.config/i3/bars/i3blocks_powerline.conf
+~/.config/i3/bars/i3blocks_powerline.conf
 # classic text style use SpaceMono NF
-# ~/.config/i3/bars/i3blocks_classic.conf 
+~/.config/i3/bars/i3blocks_classic.conf 
 # dynamic config
-# ~/.config/i3/bars/main.conf 
+~/.config/i3/bars/main.conf 
 #--transparency 
 
 # I3BAR SETTINGS
-#bar{	
-#        status_command i3blocks  -c ~/.config/i3/bars/main.conf 
-#        position top
-#        height 25
-#        i3bar_command i3bar --transparency         
-#        strip_workspace_numbers yes
-#        tray_padding 1 
-# 	font pango: $font-3
-#        
-#        colors {
-#                background $bg
-#                #I3 BAR STYLE           BORDER          BACKGROUND          TEXT  
-#                separator               #268bd2       
-#                focused_workspace       $focused-color  $focused-color      $text-color 
-#                active_workspace 	$bg             $active-color       $text-color
-#                inactive_workspace      $bg             $bg                 $text-color
-#                urgent_workspace 	$urgent_color   $urgent-color       $text-color
-#                binding_mode            $bg             $bg                 $text-color
-#        }                                                             
-#} 
+bar{	
+       status_command i3blocks  -c ~/.config/i3/bars/main.conf 
+       position top
+       height 25
+       i3bar_command i3bar --transparency         
+       strip_workspace_numbers yes
+       tray_padding 1 
+	font pango: $font-3
+       
+       colors {
+               background $bg
+               #I3 BAR STYLE           BORDER          BACKGROUND          TEXT  
+               separator               #268bd2       
+               focused_workspace       $focused-color  $focused-color      $text-color 
+               active_workspace 	$bg             $active-color       $text-color
+               inactive_workspace      $bg             $bg                 $text-color
+               urgent_workspace 	$urgent_color   $urgent-color       $text-color
+               binding_mode            $bg             $bg                 $text-color
+       }                                                             
+} 
 
 
 #*******************************************************************************************************************************

@@ -27,7 +27,7 @@ wmname LG3D
 
 alias bc='bspc config'
 alias br='bspc rule'
- 
+
 
 ################################################################################
 #                       WORSPACES and MONITORS
@@ -44,7 +44,7 @@ bspc monitor ^1 -d "" "" "" "" "" "" "" "" ""
 
 
 #   Borders
-bc border_width 1
+bc border_width 0
 bspc config border_radius	2
 bc borderless_monocle true
 
@@ -53,7 +53,7 @@ bc split_ratio 0.62
 bc single_monocle        false
 
 #   Focus
-bc pointer_follows_focus false
+bc pointer_follows_focus true
 bc focus_follows_pointer true       
 bc pointer_action2 resize_corner
 
@@ -75,17 +75,17 @@ bc presel_feedback_color "$color1"
 # if don't know the class of an aplication use the 
 # command "xprop WM_CLASS" and click the window
 
-br -a mpv state=tiled
-br -a tint2 state=floating
-br -a Lxappearance state=floating
-br -a Zathura state=tiled 
-br -a zoom desktop='^5'
-br -a Microsoft\ Teams\ -\ Insiders:\* state=tiled desktop='^5' 
-br -a kitty desktop='^6'
-br -a Nemo desktop='^3' follow on
-br -a Code desktop='^4'
-br -a org.gnome.Nautilus desktop='^3'
-br -a firefox desktop='^1'
-br -a Brave-browser desktop='^1'
-br -a krita desktop='^7'
+br -a mpv state=tiled follow off
+br -a tint2 state=floating follow off
+br -a Lxappearance state=floating follow off
+br -a Zathura state=tiled follow off
+br -a zoom desktop='^5' follow off
+br -a Microsoft\ Teams\ -\ Insiders:\* state=tiled desktop='^5' follow off
+br -a kitty desktop='^6'follow off
+br -a Nemo desktop='^3' follow off
+br -a Code desktop='^4' follow off
+br -a org.gnome.Nautilus desktop='^3' follow off
+br -a firefox desktop='^1' follow off
+br -a Brave-browser desktop='^1' follow off
+br -a krita desktop='^7' follow off
 #br -a Joplin desktop='^2'

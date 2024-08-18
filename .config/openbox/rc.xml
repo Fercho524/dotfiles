@@ -25,25 +25,25 @@
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>Cantarell</name>
-      <size>11</size>
-      <weight>Bold</weight>
+      <size>10</size>
+      <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
       <name>Cantarell</name>
-      <size>11</size>
+      <size>10</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuHeader">
       <name>Cantarell</name>
-      <size>11</size>
-      <weight>Bold</weight>
+      <size>10</size>
+      <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
       <name>Cantarell</name>
-      <size>11</size>
+      <size>10</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -68,8 +68,8 @@
       <name></name>
       <name></name>
       <name></name>
-      <name></name>
       <name></name>
+      <name></name>
       <name></name>
       <name></name>
       <name></name>
@@ -86,10 +86,10 @@
     </popupFixedPosition>
   </resize>
   <margins>
-    <top>50</top>
-    <bottom>5</bottom>
-    <left>5</left>
-    <right>5</right>
+    <top>45</top>
+    <bottom>1</bottom>
+    <left>1</left>
+    <right>1</right>
   </margins>
   <dock>
     <position>TopLeft</position>
@@ -206,6 +206,17 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <!-- Previous and next workspace-->
+    <keybind key="W-Next">
+      <action name="GoToDesktop">
+        <to>next</to>
+      </action>
+    </keybind>
+    <keybind key="W-Prior">
+      <action name="GoToDesktop">
+        <to>previous</to>
+      </action>
+    </keybind>
     <!-- Close Window -->
     <keybind key="W-w">
       <action name="Close"/>
@@ -304,24 +315,96 @@
         <width>50%</width>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
-    <!-- Menu  -->
+    <!-- Openbox-->
+    <keybind key="W-S-r">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Restart</name>
+        </startupnotify>
+        <command>openbox --restart</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-q">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Quit</name>
+        </startupnotify>
+        <command>openbox --exit</command>
+      </action>
+    </keybind>
+    <!-- rofi  -->
     <keybind key="W-m">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Rofi</name>
         </startupnotify>
-        <command>bash ~/.config/rofi/launcher.sh</command>
+        <command>bash ~/.config/rofi/launchers/launcher.sh drun</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-m">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Rofi</name>
+        </startupnotify>
+        <command>bash ~/.config/rofi/launchers/launcher.sh run</command>
+      </action>
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Rofi</name>
+        </startupnotify>
+        <command>bash ~/.config/rofi/launchers/launcher.sh filebrowser</command>
+      </action>
+    </keybind>
+    <keybind key="W-x">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Powermenu</name>
+        </startupnotify>
+        <command>bash ~/.config/rofi/applets/bin/powermenu.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-a">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Apps as root</name>
+        </startupnotify>
+        <command>bash ~/.config/rofi/applets/bin/apps.sh</command>
       </action>
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Rofi Nav</name>
+          <name>Apps as root</name>
         </startupnotify>
-        <command>bash ~/.config/rofi/run.sh</command>
+        <command>bash ~/.config/rofi/applets/bin/appasroot.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-q">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Apps as root</name>
+        </startupnotify>
+        <command>bash ~/.config/rofi/applets/bin/quicklinks.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-Tab">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>All Windows</name>
+        </startupnotify>
+        <command>bash ~/.config/rofi/launchers/launcher.sh window</command>
       </action>
     </keybind>
     <!-- Browser -->
@@ -341,7 +424,17 @@
           <enabled>true</enabled>
           <name>File Explorer</name>
         </startupnotify>
-        <command>nautilus</command>
+        <command>~/.bin/nautilus.sh</command>
+      </action>
+    </keybind>
+    <!-- Text Editor -->
+    <keybind key="W-c">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Visual Studio Code</name>
+        </startupnotify>
+        <command>code</command>
       </action>
     </keybind>
     <!-- Redshift -->
@@ -373,17 +466,7 @@
         <command>kitty</command>
       </action>
     </keybind>
-    <!-- Scrot -->
-    <keybind key="W-s">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Scrot</name>
-        </startupnotify>
-        <command>scrot</command>
-      </action>
-    </keybind>
-    <!-- Manual screenshot -->
+    <!-- Screenshots -->
     <keybind key="Print">
       <action name="Execute">
         <startupnotify>
@@ -402,6 +485,55 @@
         <command>flameshot full</command>
       </action>
     </keybind>
+    <!-- Screen Recording-->
+    <keybind key="W-C-a">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Record area of screen</name>
+        </startupnotify>
+        <command>peek</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-r">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Powermenu</name>
+        </startupnotify>
+        <command> obs --startrecording --minimize-to-tray --multi</command>
+      </action>
+    </keybind>
+    <!-- Color Picker-->
+    <keybind key="W-p">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Color Picker</name>
+        </startupnotify>
+        <command>~/.bin/colorpicker.sh</command>
+      </action>
+    </keybind>
+    <!-- Lockscreen-->
+    <keybind key="W-l">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Lockscreen</name>
+        </startupnotify>
+        <command> i3lock-fancy</command>
+      </action>
+    </keybind>
+    <!-- Wallpapers -->
+    <keybind key="W-0">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Wal</name>
+        </startupnotify>
+        <command>~/.bin/wal.sh</command>
+      </action>
+    </keybind>
     <!-- Hardware -->
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
@@ -409,34 +541,34 @@
           <enabled>true</enabled>
           <name>Vol Low</name>
         </startupnotify>
-        <command>pactl set-sink-volume @DEFAULT_SINK@ -5%</command>
+        <command>bash ~/.bin/volume.sh down</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Vol Low</name>
+          <name>Vol Up</name>
         </startupnotify>
-        <command>pactl set-sink-volume @DEFAULT_SINK@ +5%</command>
+        <command>bash ~/.bin/volume.sh up</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Vol Low</name>
+          <name>Mute audio</name>
         </startupnotify>
-        <command>pactl set-sink-mute @DEFAULT_SINK@ toggle</command>
+        <command>bash ~/.bin/volume.sh mute</command>
       </action>
     </keybind>
-        <keybind key="XF86AudioMicMute">
+    <keybind key="XF86AudioMicMute">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Mic Mute</name>
         </startupnotify>
-        <command>pactl set-source-mute @DEFAULT_SOURCE@ toggle</command>
+        <command>bash ~/.bin/volume.sh mic</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessUp">
@@ -457,104 +589,13 @@
         <command>brightnessctl set 1%-</command>
       </action>
     </keybind>
-    <keybind key="W-S-r">
+    <keybind key="W-mod5-s">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Restart</name>
+          <name>Speech clipboard selection</name>
         </startupnotify>
-        <command>openbox --restart</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-q">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Quit</name>
-        </startupnotify>
-        <command>openbox --exit</command>
-      </action>
-    </keybind>
-    <keybind key="W-Next">
-      <action name="GoToDesktop">
-        <to>next</to>
-      </action>
-    </keybind>
-    <keybind key="W-Prior">
-      <action name="GoToDesktop">
-        <to>previous</to>
-      </action>
-    </keybind>
-    <keybind key="W-0">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Wal</name>
-        </startupnotify>
-        <command>~/.bin/wal.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-x">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Powermenu</name>
-        </startupnotify>
-        <command>~/.config/rofi/powermenu.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-a">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Record area of screen</name>
-        </startupnotify>
-        <command>peek</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-r">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Powermenu</name>
-        </startupnotify>
-        <command> obs --startrecording --minimize-to-tray --multi</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Emoji Menu</name>
-        </startupnotify>
-        <command>rofi -show run</command>
-      </action>
-    </keybind>
-    <keybind key="W-p">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Color Picker</name>
-        </startupnotify>
-        <command>~/.bin/colorpicker.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-Tab">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>All Windows</name>
-        </startupnotify>
-        <command>~/.config/rofi/window.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-l">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Lockscreen</name>
-        </startupnotify>
-        <command> i3lock-fancy</command>
+        <command>bash ~/.bin/say.sh</command>
       </action>
     </keybind>
   </keyboard>

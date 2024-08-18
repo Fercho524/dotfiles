@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/fercho/Imágenes/Wallpapers/Desktop/wallpaper_059.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#12012a",
+        "foreground": "#b89ad2",
+        "cursor": "#b89ad2"
+    },
+    "colors": {
+        "color0": "#12012a",
+        "color1": "#6B3395",
+        "color2": "#5832A9",
+        "color3": "#6938AA",
+        "color4": "#7343B8",
+        "color5": "#7648C4",
+        "color6": "#863EAA",
+        "color7": "#b89ad2",
+        "color8": "#806b93",
+        "color9": "#6B3395",
+        "color10": "#5832A9",
+        "color11": "#6938AA",
+        "color12": "#7343B8",
+        "color13": "#7648C4",
+        "color14": "#863EAA",
+        "color15": "#b89ad2"
+    }
+}

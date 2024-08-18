@@ -1,13 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-##
-## Simple script to pick color quickly.
+if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
+	color=$(xcolor --format hex --preview-size 255 --scale 10)
+	image=/tmp/${color}.png
 
-color=$(xcolor --format hex --preview-size 255 --scale 10)
-image=/tmp/${color}.png
-
-main() {
 	if [[ "$color" ]]; then
 		# copy color code to clipboard
 		echo $color | tr -d "\n" | xclip -selection clipboard
@@ -16,7 +12,16 @@ main() {
 		# notify about it
 		dunstify -u low -h string:x-dunst-stack-tag:obcolorpicker -i ${image} "$color, copied to clipboard."
 	fi
-}
 
-# run the script
-main
+elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
+	# Este comando largísimo funciona en wayland
+	color=$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | grep -Eo '#[0-9A-Fa-f]{6}')
+
+	if [[ "$color" ]]; then
+		# copy color code to clipboard
+		wl-copy $color
+
+		# notify about it
+		dunstify -u low -h string:x-dunst-stack-tag:obcolorpicker "$color, copied to clipboard."
+	fi
+fi

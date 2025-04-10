@@ -1,0 +1,1396 @@
+:root {
+    --white: #E5FFDE;
+    --dark-white: #CEE5C7;
+    --light-grey: #44475A;
+    --grey: #040010;
+    --dark-grey: #040010;
+    --darker-grey: #040010;
+    --black: #050017;
+    --red: #FF1744;
+    --red-dark: #FF1744;
+    --green: #23CD60;
+    --green-dark: #23CD60;
+    --yellow: #E7AE1D;
+    --yellow-dark: #E7AE1D;
+    --blue: #02A4F1;
+    --blue-dark: #02A4F1;
+    --purple: #F459F4;
+    --purple-dark: #F459F4;
+    --aqua: #00F8F8;
+    --aqua-dark: #00F8F8;
+    --orange: #E7AE1D;
+    --orange-dark: #E7AE1D;
+
+    --base-size-1: 1px;
+    --base-size-4: 5px;
+    --base-size-8: 9px;
+    --base-size-11: 11px;
+    --base-size-12: 12px;
+    --base-size-13: 13px;
+    --base-size-14: 14px;
+    --base-size-15: 15px;
+    --base-size-16: 16px;
+    --base-size-17: 17px;
+    --base-size-18: 18px;
+    --base-size-18: 19px;
+    --base-size-24: 24px;
+    --base-size-32: 32px;
+    --base-size-40: 40px;
+    --base-size-272: 272px;
+    --z-toc: 99;
+
+    --font-weight-light: 300;
+    --font-weight-base: 550;
+    --font-weight-base-extra: 550;
+    --font-weight-bold: 600;
+    --font-title: "ADLaM Display";
+    --font-sans: "ADLaM Display";
+    /*Montserrat or Corbel*/
+    --font-mono: "JetBrainsMono NF";
+    --primary: var(--yellow);
+    --secondary: var(--yellow);
+    --font-line-height: 1.4em;
+    --font-size: var(--base-size-15);
+    --icon-size: var(--font-size);
+
+
+
+
+
+    --size-tab: 2;
+    /* body
+    ::-webkit-scrollbar
+  */
+    --size-body: 18pt;
+    --weight-body: 300;
+    --height-body: 1.42em;
+    /* reduce icon size
+    .resource-icon
+  */
+    --top-icon: .2em;
+    --width-icon: 0.75em;
+    --height-icon: 0.9em;
+
+    /*
+  horizontal rule
+    hr
+  */
+    /* stee teal */
+    --color-line: #ff8c2f 1px solid;
+    /*
+  headers
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+  */
+    /* orange */
+    --color-headers: #ff8c2f 1px solid;
+    /*
+  italics
+    em
+  */
+    /* glossy grape */
+    --color-italics: #616dad;
+    /*
+  bold
+    .strong
+  */
+    /* carolina blue */
+    --color-bold: #5fa2d0;
+    --weight-bold: 600;
+    /*
+  block quote
+    blockquote
+  */
+    --style-quote: italic;
+
+    /*
+  inline code
+    .inline-code
+  */
+    --color-code: #B18EB1;
+
+    /*
+  inline code italics
+    em .inline-code
+  */
+    /* phlox */
+    --color-code-ital: #ed00ff;
+    /*
+  inline code bold
+    strong .inline-code
+  */
+    /* cornflower blue */
+    --color-code-bold: #6495ed;
+
+
+
+
+
+    /* unordered (bulleted) list spacing
+    ul, ol
+  */
+    --height-lists: 1.17em;
+    --top-lists: 3px;
+    --left-lists: 1.2em;
+    /* list items
+    li
+  */
+    --bottom-lists-item: 3.6px;
+    /* list - nested paragraph fix; precedes markdown links within lists (edge case)
+    li > p
+  */
+    --top-lists-item-pgph: -28px;
+    /* inline display of checkboxes within lists
+    li.md-checkbox.joplin-checkbox > div.checkbox-wrapper
+  */
+    --start-check: 26px;
+
+    /* colored ordered list numeric prefixes
+    ol > li:before
+  */
+    --width-list-0: 2em;
+    --leftm-list-0: -2.5em;
+    --rightm-list-0: 0.5em;
+
+
+    /* colored and additional bullets */
+
+    /* • - depth 1, passthrough
+    ul > li::before,
+    ol > li:before
+  */
+    --content-list-1: "\2022";
+    --color-list-1: #7728ab;
+    --width-list-1: 1em;
+    --leftm-list-1: -1em;
+    --top-list-1: 2px;
+    --left-list-1: 3px;
+    --weight-list-1: 600;
+    --size-list-1: 20pt;
+    --height-list-1: 1em;
+
+
+    /* ◦ - depth 2
+    ul > li > ul > li::before,
+    ol > li > ol > li::before
+  */
+    --content-list-2: "\25E6";
+    --color-list-2: #00fffd;
+
+    /* ▪ - depth 3
+    ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li::before
+  */
+    --content-list-3: "\25AA";
+    --color-list-3: #2a7c38;
+
+    /* ► - depth 4
+    ul > li > ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li > ol > li::before
+  */
+    --content-list-4: "\25BA";
+    --color-list-4: #8b84ff;
+    --top-list-4: -2px;
+    --left-list-4: -4px;
+    --size-list-4: 12pt;
+
+    /* ♦ - depth 5
+    ul > li > ul > li > ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li > ol > li > ol > li::before
+  */
+    --content-list-5: "\2666";
+    --color-list-5: #7c451f;
+    --top-list-5: 1px;
+    --left-list-5: 3px;
+    --size-list-5: 20pt;
+
+    /* ◌ - depth 6
+    ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li > ol > li > ol > li > ol > li::before
+  */
+    --content-list-6: "\25CC";
+    --color-list-6: #ed00ff;
+
+    /* ֍ - depth 7
+    ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li::before
+  */
+    --content-list-7: "\058D";
+    --color-list-7: #fc7007;
+    --top-list-7: -3px;
+    --left-list-7: -9px;
+    --size-list-7: 13pt;
+
+    /* ҉ - depth 8
+    ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li::before
+  */
+    --content-list-8: "\0489";
+    --color-list-8: #0defe0;
+    --top-list-8: -1px;
+    --left-list-8: -2px;
+    --size-list-8: 12pt;
+
+    /* ۞ - depth 9
+    ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before,
+    ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li::before
+  */
+    --content-list-9: "\06DE";
+    --color-list-9: #6495ED;
+    --top-list-9: -3px;
+    --left-list-9: -12px;
+    --size-list-9: 12pt;
+
+
+
+    /* common colors */
+
+    /* phlox
+    .mbin,
+    svg[id^='mermaid-'] path.arrowheadPath,
+    svg[id^='mermaid-'] g.edgePath path.path,
+    svg[id^='mermaid-'] > line[class^='messageLine'],
+    svg[id^='mermaid-'] > path[class^='messageLine'],
+    svg[id^='mermaid-'] #arrowhead path,
+    svg[id^='mermaid-'] .loopText,
+      svg[id^='mermaid-'] .loopText > tspan,
+    svg[id^='mermaid-'] .transition,
+    svg[id^='mermaid-'] #statediagram-barbEnd path,
+    svg[id^='mermaid-']  .doneText0,
+      svg[id^='mermaid-']  .doneText1,
+      svg[id^='mermaid-']  .doneText2,
+      svg[id^='mermaid-']  .doneText3,
+    svg[id^='mermaid-'] .grid .tick text,
+    svg[id^='mermaid-'] > g > text.taskTextOutsideLeft
+  */
+    --color-phlox: #dd0dff;
+    /* cornflower blue
+     .katex *,
+     svg[id^='mermaid-'] g.label,
+     svg[id^='mermaid-'] > g > line.actor-line,
+     svg[id^='mermaid-'] #arrowhead path,
+     svg[id^='mermaid-'] > text.messageText,
+     svg[id^='mermaid-'] g > text.actor > tspan,
+     svg[id^='mermaid-'] .labelText,
+      svg[id^='mermaid-'] .labelText > tspan,
+    svg[id^='mermaid-'] span.nodeLabel,
+    svg[id^='mermaid-'] #statediagram-barbEnd path,
+    svg[id^='mermaid-'] text.titleText
+    svg[id^='mermaid-'] text.sectionTitle > tspan,
+    svg[id^='mermaid-']  .doneText0,
+      svg[id^='mermaid-']  .doneText1,
+      svg[id^='mermaid-']  .doneText2,
+      svg[id^='mermaid-']  .doneText3,
+    svg[id^='mermaid-'] .grid .tick,
+    svg[id^='mermaid-'] > g > text.doneCritText0,
+      svg[id^='mermaid-'] > g > text.doneCritText1,
+      svg[id^='mermaid-'] > g > text.doneCritText2,
+      svg[id^='mermaid-'] > g > text.doneCritText3,
+    svg[id^='mermaid-'] > g > text.activeCritText0,
+      svg[id^='mermaid-'] > g > text.activeCritText1,
+      svg[id^='mermaid-'] > g > text.activeCritText2,
+      svg[id^='mermaid-'] > g > text.activeCritText3,
+    svg[id^='mermaid-']  .taskText0,
+      svg[id^='mermaid-']  .taskText1,
+      svg[id^='mermaid-']  .taskText2,
+      svg[id^='mermaid-']  .taskText3
+  */
+    --color-cornflower-blue: #6495ed;
+    /* green reef
+    svg[id^='mermaid-'] .section0
+  */
+    --color-green-reef: #d1fa8e;
+    /* screaming green
+    svg[id^='mermaid-'] .section1,
+    svg[id^='mermaid-'] .section3
+  */
+    --color-screaming-green: #78ff7d;
+    /* green lizard
+    .mrel, .mrel.mtight,
+    svg[id^='mermaid-'] .loopText,
+      svg[id^='mermaid-'] .loopText > tspan
+  */
+    --color-green-lizard: #b5f735;
+    /* medium slate blue
+    .mop,
+    svg[id^='mermaid-'] g.nodes > g.node > rect,
+      svg[id^='mermaid-'] g.nodes > g.node > circle,
+      svg[id^='mermaid-'] g.nodes > g.node > ellipse,
+      svg[id^='mermaid-'] g.nodes > g.node > polygon,
+      svg[id^='mermaid-'] g.nodes > g.node > path,
+    svg[id^='mermaid-'] .loopText,
+      svg[id^='mermaid-'] .loopText > tspan,
+    svg[id^='mermaid-'] g > rect.actor
+  */
+    --color-slate-blue: #835cfd;
+    /* turquoise blue
+    .mtight,
+    svg[id^='mermaid-'] g.label,
+    svg[id^='mermaid-'] g.label text,
+    svg[id^='mermaid-'] g.edgeLabel > g.label > rect,
+    svg[id^='mermaid-'] > g > line.loopLine,
+    svg[id^='mermaid-'] > text.sequenceNumber,
+    svg[id^='mermaid-'] .loopText,
+      svg[id^='mermaid-'] .loopText > tspan,
+    svg[id^='mermaid-'] .labelBox,
+    svg[id^='mermaid-'] text.noteText,
+      svg[id^='mermaid-'] text.noteText > tspan,
+    svg[id^='mermaid-'] .statediagram-cluster rect
+  */
+    --color-turquoise-blue: #0defe0;
+    /* lilac
+    svg[id^='mermaid-'] .statediagram-cluster rect
+  */
+    --color-lilac: #ECECFF;
+    /* bright lilac
+    .mathnormal,
+    svg[id^='mermaid-'] span.edgeLabel,
+    svg[id^='mermaid-'] > text.messageText
+  */
+    --color-bright-lilac: #e08df2;
+    /* mellow apricot
+    .frac-line,
+    svg[id^='mermaid-']  rect.note
+  */
+    --color-mellow-apricot: #fdc185;
+    /* orange Salomie
+    svg[id^='mermaid-'] .section2
+  */
+    --color-orange-salomie: #ffd378;
+    /* sinopia
+    .mclose
+  */
+    --color-sinopia: #dd3700;
+    /* raisin black
+    div.mermaid
+  */
+    --color-raisin-black: #241E25;
+    /* Black Pearl
+    svg[id^='mermaid-']  .taskText0,
+    svg[id^='mermaid-']  .taskText1,
+    svg[id^='mermaid-']  .taskText2,
+    svg[id^='mermaid-']  .taskText3
+  */
+    --color-black-pearl: #0c1e2d;
+    /* rich black
+    svg[id^='mermaid-'] g.nodes > g.node > rect,
+      svg[id^='mermaid-'] g.nodes > g.node > circle,
+      svg[id^='mermaid-'] g.nodes > g.node > ellipse,
+      svg[id^='mermaid-'] g.nodes > g.node > polygon,
+      svg[id^='mermaid-'] g.nodes > g.node > path,
+    svg[id^='mermaid-'] span.edgeLabel,
+    svg[id^='mermaid-'] g > rect.actor,
+    svg[id^='mermaid-'] .labelBox,
+    svg[id^='mermaid-'] text.noteText,
+      svg[id^='mermaid-'] text.noteText > tspan,
+    svg[id^='mermaid-'] .statediagram-cluster rect,
+    svg[id^='mermaid-'] .statediagram-cluster.statediagram-cluster-alt .inner
+  */
+    --color-rich-black: #081a28;
+    /* purple
+    svg[id^='mermaid-'] .statediagram-cluster.statediagram-cluster .inner
+  */
+    --color-purple: #270c2d;
+    /* dark purple
+    svg[id^='mermaid-'] span.edgeLabel
+  */
+    --color-dark-purple: #220828;
+    /* darker green
+    svg[id^='mermaid-']  rect.note
+  */
+    --color-darker-green: #092a0c;
+    /* dark green
+    svg[id^='mermaid-'] .node circle.state-start
+  */
+    --color-dark-green: #0c2d0f;
+    /* green yellow crayola
+  */
+    --color-green-yellow: #fff5ad;
+    /* medium purple
+    svg[id^='mermaid-'] .statediagram-cluster rect,
+    svg[id^='mermaid-'] .statediagram-cluster rect.inner,
+    svg[id^='mermaid-'] .statediagram-cluster rect
+  */
+    --color-medium-purple: #9370DB;
+    /* pumpkin
+    svg[id^='mermaid-'] .node circle.state-end
+  */
+    --color-pumpkin: #fc7007;
+    /* jet
+    svg[id^='mermaid-'] .transition
+  */
+    --color-jet: #333333;
+
+
+
+
+
+
+    /* KaTeX Styles */
+
+    /*
+  katex tags
+    .katex *
+    NOT USED
+  */
+    /* cornflower blue */
+    --color-katex: #6495ed;
+
+
+
+    /* Mermaid Styles
+    div.mermaid,
+    svg[id^='mermaid-'] g.flowchart-link
+  */
+    --color-mermaid: coral;
+    --border-mermaid: 15px 15px;
+
+    /* Gantt chart column titles, sequence diagram step numbers
+    svg[id^='mermaid-'] > text.sequenceNumber,
+    svg[id^='mermaid-'] text.sectionTitle > tspan
+  */
+    --size-title: 15px;
+
+    /* Gantt chart task labels
+    svg[id^='mermaid-'] > g > text.taskTextOutsideRight,
+    svg[id^='mermaid-'] > g > text.taskTextOutsideLeft
+  */
+    --color-task: #7728ab;
+}
+
+
+/* widen default horizontal and vertical scrollbars */
+::-webkit-scrollbar {
+    width: var(--size-body);
+    height: var(--size-body);
+}
+
+/* reduce inline (joplin) icon size */
+.resource-icon {
+    top: var(--top-icon);
+    width: var(--width-icon);
+    height: var(--height-icon);
+}
+
+.yellow {
+    color: var(--yellow) !important;
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-light) !important;
+    letter-spacing: 0.01em;
+    margin-top: var(--base-size-24);
+}
+
+.blue {
+    color: var(--blue) !important;
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-light) !important;
+    letter-spacing: 0.01em;
+    margin-top: var(--base-size-24);
+}
+
+.purple {
+    color: var(--purple) !important;
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-light) !important;
+    letter-spacing: 0.01em;
+    margin-top: var(--base-size-24);
+}
+
+.red {
+    color: var(--red) !important;
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-light) !important;
+    letter-spacing: 0.01em;
+    margin-top: var(--base-size-24);
+}
+
+.hljs {
+    padding: var(--base-size-18);
+    border-radius: var(--base-size-4) !important;
+}
+
+#rendered-md {
+    font-family: var(--font-sans) !important;
+    padding: 3%;
+}
+
+body {
+    font-family: var(--font-sans) !important;
+    font-weight: var(--font-weight-base) !important;
+    font-size: var(--font-size);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+table {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-light) !important;
+    letter-spacing: 0.01em;
+    margin-top: var(--base-size-24);
+}
+
+h1 {
+    text-align: center;
+    font-size: calc(var(--font-size)*2) !important;
+    line-height: var(--font-line-height) !important;
+    margin-top: var(--base-size-40) !important;
+    border-bottom: none !important;
+    font-weight: bold !important;
+}
+
+h1:first-child {
+    margin-top: 0px !important;
+}
+
+h2 {
+    font-size: calc(var(--font-size)*1.6) !important;
+    font-weight: bold !important;
+}
+
+h3 {
+    font-size: calc(var(--font-size)*1.4) !important;
+    font-weight: bold !important;
+}
+
+h4 {
+    font-size: calc(var(--font-size)*1.3) !important;
+    font-weight: bold !important;
+}
+
+p,
+li {
+    /* font-weight: var(--font-weight-base) !important; */
+    letter-spacing: .03em;
+    margin-bottom: var(--base-size-24);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: justify;
+}
+
+ol li,
+ul li {
+    margin-bottom: var(--base-size-4);
+}
+
+ul ul {
+    /* list-style-type: cjk-heavenly-stem; */
+    list-style-type: disc;
+}
+
+hr {
+    padding: var(--base-size-11) !important;
+}
+
+blockquote {
+    font-style: regular !important;
+    opacity: 1;
+    padding-right: 8px;
+    border-radius: 8px !important;
+    border-left: 6px solid var(--green);
+}
+
+blockquote strong {
+    font-style: bold !important;
+}
+
+blockquote em {
+    font-style: italic !important;
+}
+
+li.md-checkbox [type="checkbox"]:not(:checked),
+li.md-checkbox [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+    margin-left: -32px !important;
+}
+
+li.md-checkbox [type="checkbox"]:not(:checked)+label,
+li.md-checkbox [type="checkbox"]:checked+label {
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer;
+    margin-left: -32px !important;
+}
+
+
+a,
+summary {
+    text-decoration: none !important;
+    padding: 0 0 var(--base-size-4) 0 !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
+a:hover {
+    border-bottom: var(--base-size-1) dashed var(--secondary) !important;
+}
+
+a[data-resource-id] {
+    color: var(--dark-green) !important;
+    /* change the colour of INTERNAL links */
+    /* https://discourse.joplinapp.org/t/share-your-css/1730/65 */
+}
+
+a[data-resource-id] :hover {
+    border-bottom: var(--base-size-1) dashed var(--primary) !important;
+}
+
+/* joplin icon in joplin link */
+.resource-icon {
+    background-color: var(--primary) !important;
+    width: 0.75em;
+    height: 0.9em;
+    top: 0.1em;
+}
+
+/*
+```
+code blocks
+```
+*/
+pre {
+    padding: 1em !important;
+    background-color: var(--dark-grey) !important;
+    border-radius: 20px !important;
+    font-family: var(--font-mono) !important;
+}
+
+/* ```inline code``` */
+.inline-code {
+    font-family: var(--font-mono) !important;
+    font-size: var(--base-size-12) !important;
+    padding: .3em .3em !important;
+    border-radius: var(--base-size-4) !important;
+    background-color: var(--red) !important;
+    border: none !important;
+    color: var(--white) !important;
+}
+
+/* ==emphasis== */
+mark {
+    padding: 0 var(--base-size-4) !important;
+    background-color: var(--yellow-dark);
+}
+
+nav.table-of-contents>ul {
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: var(--z-toc);
+    background: var(--dark-grey);
+    padding: var(--base-size-8);
+    border-radius: var(--base-size-4);
+    max-width: 15%;
+    font-size: calc(var(--font-size)/1.3) !important;
+    max-height: var(--base-size-272);
+    overflow: scroll;
+    opacity: 1;
+}
+
+nav.table-of-contents ul {
+    list-style-type: none;
+    margin-left: var(--base-size-4);
+}
+
+nav.table-of-contents li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+}
+
+nav.table-of-contents li a {
+    padding: 0;
+    color: var(--light-grey) !important;
+}
+
+@media all and (min-width: 920px) {
+    nav.table-of-contents>ul {
+        height: 100%;
+        max-height: 100%;
+    }
+
+    #rendered-md {
+        width: 75%;
+    }
+}
+
+b-gray,
+b-green,
+b-red,
+b-blue,
+b-orange,
+b-pink,
+b-purple {
+    width: 90%;
+    display: block;
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid;
+    border-left: 5px solid;
+    border-radius: 2px;
+    word-wrap: break-word;
+    box-shadow: 3px 3px 7px 0 rgba(255, 255, 255, 0.7);
+    color: #000000;
+}
+
+b-gray {
+    border-color: #b1bcc2;
+    background-color: #e9edf0;
+}
+
+b-green {
+    border-color: #5fa04e;
+    background-color: #c5e5b4;
+}
+
+
+b-red {
+    border-color: #f65354;
+    background-color: #fad3d4;
+}
+
+b-blue {
+    border-color: #229ade;
+    background-color: #bbe5fb;
+}
+
+b-orange {
+    border-color: #cf7506;
+    background-color: #faf3d3;
+}
+
+
+b-purple {
+    border-color: #af74e8;
+    background-color: #ead9fb;
+}
+
+b-pink {
+    border-color: #ed5393;
+    background-color: #fad3e5;
+}
+
+/**/
+
+
+
+
+@media print {
+
+    /* reset background and padding for preformatted text */
+    pre {
+        padding: unset;
+        background: unset;
+    }
+
+    /* do not print note title (or when exporting to PDF) */
+
+    .exported-note-title {
+        display: none !important;
+    }
+
+
+    /* do not print the anchor link symbol when the "Copy Anchor Link" */
+    /* plugin is active                                                */
+    .cai-gf {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+
+
+/* unordered (bulleted) list spacing */
+ul,
+ol {
+    line-size: var(--height-lists);
+    margin-top: var(--top-lists);
+    margin-left: var(--left-lists);
+}
+
+li {
+    margin-bottom: var(--bottom-lists-item);
+}
+
+/* list - nested paragraph fix; precedes markdown links within lists (edge case) */
+li p {
+    margin-top: var(--top-lists-item-pgph);
+}
+
+/* begin colored and additional bullets */
+ul {
+    list-style: none;
+}
+
+/* default bullets • = "\2022", ◦ = \25E6" and ▪ = "\25AA"  */
+
+/* • */
+ul>li::before {
+    content: var(--content-list-1);
+    color: var(--color-list-1);
+    display: inline-block;
+    width: var(--width-list-1);
+    margin-left: var(--leftm-list-1);
+    position: relative;
+    top: var(--top-list-1);
+    left: var(--left-list-1);
+    font-weight: var(--weight-list-1);
+    font-size: var(--size-list-1);
+    line-size: var(--height-list-1);
+}
+
+/* ◦ */
+ul>li>ul>li::before {
+    content: var(--content-list-2);
+    color: var(--color-list-2);
+}
+
+/* ▪ */
+ul>li>ul>li>ul>li::before {
+    content: var(--content-list-3);
+    color: var(--color-list-3);
+}
+
+/* ► */
+ul>li>ul>li>ul>li>ul>li::before {
+    content: var(--content-list-4);
+    color: var(--color-list-4);
+    top: var(--top-list-4);
+    left: var(--left-list-4);
+    font-size: var(--size-list-4);
+}
+
+/* ♦ */
+ul>li>ul>li>ul>li>ul>li>ul>li::before {
+    content: var(--content-list-5);
+    color: var(--color-list-5);
+    top: var(--top-list-5);
+    left: var(--left-list-5);
+    font-size: var(--size-list-5);
+}
+
+/* ◌ */
+ul>li>ul>li>ul>li>ul>li>ul>li>ul>li::before {
+    content: var(--content-list-6);
+    color: var(--color-list-6);
+}
+
+/* ֍ */
+ul>li>ul>li>ul>li>ul>li>ul>li>ul>li>ul>li::before {
+    content: var(--content-list-7);
+    color: var(--color-list-7);
+    top: var(--top-list-7);
+    left: var(--left-list-7);
+    font-size: var(--size-list-7);
+}
+
+/* ҉ */
+ul>li>ul>li>ul>li>ul>li>ul>li>ul>li>ul>li>ul>li::before {
+    content: var(--content-list-8);
+    color: var(--color-list-8);
+    top: var(--top-list-8);
+    left: var(--left-list-8);
+    font-size: var(--size-list-8);
+}
+
+/* ۞ */
+ul>li>ul>li>ul>li>ul>li>ul>li>ul>li>ul>li>ul>li>ul>li::before {
+    content: var(--content-list-9);
+    color: var(--color-list-9);
+    top: var(--top-list-9);
+    left: var(--left-list-9);
+    font-size: var(--size-list-9);
+}
+
+
+
+
+/* Mermaid Styles */
+div.mermaid {
+    width: 100%;
+    background-color: var(--color-raisin-black) !important;
+    border: dashed;
+    border-color: var(--color-mermaid) !important;
+    border-top-left-radius: var(--border-mermaid);
+    border-top-right-radius: var(--border-mermaid);
+    border-bottom-right-radius: 5% 5%;
+}
+
+
+
+/* flowcharts */
+
+/* node text labels */
+
+svg[id^='mermaid-'] g.label {
+    font-family: var(--mermaid-font-family);
+    color: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+}
+
+svg[id^='mermaid-'] g.label text {
+    fill: var(--color-turquoise-blue) !important;
+    font-weight: bold;
+}
+
+
+
+/* nodes */
+
+svg[id^='mermaid-'] g.nodes>g.node>rect,
+svg[id^='mermaid-'] g.nodes>g.node>circle,
+svg[id^='mermaid-'] g.nodes>g.node>ellipse,
+svg[id^='mermaid-'] g.nodes>g.node>polygon,
+svg[id^='mermaid-'] g.nodes>g.node>path {
+    fill: var(--color-rich-black) !important;
+    stroke: var(--color-slate-blue) !important;
+    stroke-width: 3px;
+}
+
+
+svg[id^='mermaid-'] g.node.clickable {
+    cursor: pointer;
+}
+
+
+
+
+/* center nodes */
+
+svg[id^='mermaid-'] g.nodes>g.node>g.label {
+    text-align: center;
+}
+
+
+svg[id^='mermaid-'] g.nodes>g.node>g.label div {
+    margin-left: calc(-2%);
+}
+
+svg[id^='mermaid-'] g.nodes>g.node>g.label foreignObject {
+    overflow: visible;
+}
+
+
+
+
+
+/* vector paths, terminators */
+
+
+svg[id^='mermaid-'] path.arrowheadPath {
+    fill: var(--color-phlox) !important;
+}
+
+svg[id^='mermaid-'] g.edgePath path.path {
+    stroke: var(--color-phlox) !important;
+}
+
+svg[id^='mermaid-'] g.flowchart-link {
+    stroke: var(--color-mermaid) !important;
+    fill: none;
+}
+
+
+
+
+
+/* link / edgeLabels, bisecting vectors */
+
+
+
+svg[id^='mermaid-'] g.edgeLabel>g.label>rect {
+    opacity: 0.35 !important;
+    background-color: var(--color-turquoise-blue) !important;
+    fill: var(--color-turquoise-blue) !important;
+}
+
+svg[id^='mermaid-'] span.edgeLabel {
+    background-color: var(--color-dark-purple) !important;
+    text-align: center;
+    color: var(--color-bright-lilac) !important;
+    font-weight: bold;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+svg[id^='mermaid-'] span.edgeLabel:empty {
+    border: none;
+}
+
+
+
+
+
+
+/* sequenceDiagram */
+
+
+svg[id^='mermaid-']>g>line.loopLine {
+    stroke-width: 3px !important;
+    stroke: var(--color-turquoise-blue) !important;
+    fill: var(--color-turquoise-blue) !important;
+}
+
+
+
+/* vertical actor */
+svg[id^='mermaid-']>g>line.actor-line {
+    stroke: var(--color-cornflower-blue) !important;
+    stroke-width: 4.5px !important;
+}
+
+/* horizontal message / action - outer sequence number wrapper */
+svg[id^='mermaid-']>line[class^='messageLine'] {
+    stroke: var(--color-phlox) !important;
+    stroke-width: 2.4px !important;
+}
+
+/* curved path / loop - inner sequence number wrapper */
+svg[id^='mermaid-']>path[class^='messageLine'] {
+    stroke-width: 2.4 !important;
+    stroke: var(--color-phlox) !important;
+}
+
+
+/* vector arrowhead */
+
+svg[id^='mermaid-'] #arrowhead path {
+    stroke-width: 0.3px !important;
+    stroke: var(--color-phlox) !important;
+    fill: var(--color-cornflower-blue) !important;
+}
+
+
+
+
+
+/* sequence diagram step numbers */
+
+svg[id^='mermaid-']>text.sequenceNumber {
+    fill: var(--color-turquoise-blue) !important;
+    font-size: var(--size-title) !important;
+    font-weight: bold !important;
+}
+
+
+
+
+/* horizontal message / action Text */
+
+svg[id^='mermaid-']>text.messageText {
+    stroke-width: 0.3px !important;
+    fill: var(--color-bright-lilac) !important;
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+
+/* loop box label text */
+
+svg[id^='mermaid-'] .loopText,
+svg[id^='mermaid-'] .loopText>tspan {
+    stroke-width: 0.1px !important;
+    fill: var(--color-turquoise-blue) !important;
+    stroke: var(--color-green-lizard) !important;
+}
+
+
+
+
+/* actor container */
+
+svg[id^='mermaid-'] g>rect.actor {
+    fill: var(--color-rich-black) !important;
+    stroke: var(--color-slate-blue) !important;
+    stroke-width: 3px !important;
+}
+
+
+
+/* actor text */
+
+svg[id^='mermaid-'] g>text.actor>tspan {
+    stroke-width: 0.33px !important;
+    color: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+    fill: var(--color-cornflower-blue) !important;
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+
+/* sub block labels - (par)allel, loop, (opt)ional */
+
+svg[id^='mermaid-'] .labelBox {
+    stroke: var(--color-turquoise-blue) !important;
+    fill: var(--color-rich-black) !important;
+    stroke-width: 0.6px !important;
+}
+
+/* sub block labels text - (par)allel, loop, (opt)ional */
+
+svg[id^='mermaid-'] .labelText,
+svg[id^='mermaid-'] .labelText>tspan {
+    stroke-width: 0.33px !important;
+    color: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+    fill: var(--color-cornflower-blue) !important;
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+/* note box */
+svg[id^='mermaid-'] rect.note {
+    stroke: var(--color-mellow-apricot) !important;
+    fill: var(--color-darker-green) !important;
+    stroke-width: 1.5px !important;
+}
+
+/* note box text */
+
+svg[id^='mermaid-'] text.noteText,
+svg[id^='mermaid-'] text.noteText>tspan {
+    color: var(--color-rich-black) !important;
+    fill: var(--color-turquoise-blue) !important;
+    stroke: var(--color-green-yellow) !important;
+    stroke-width: 0.05px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* stateDiagram */
+
+
+/* state label text */
+
+svg[id^='mermaid-'] span.nodeLabel {
+    font-family: var(--mermaid-font-family);
+    color: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+}
+
+
+svg[id^='mermaid-'] g.cluster-label>foreignObject {
+    overflow: visible;
+}
+
+
+
+svg[id^='mermaid-'] .statediagram-cluster rect {
+    background-color: var(--color-turquoise-blue) !important;
+    fill: var(--color-rich-black) !important;
+    stroke: var(--color-medium-purple) !important;
+    stroke-width: 1px !important;
+}
+
+svg[id^='mermaid-'] .statediagram-cluster rect {
+    fill: var(--color-rich-black) !important;
+    stroke: var(--color-medium-purple);
+    stroke-width: 1.5px !important;
+}
+
+
+
+
+svg[id^='mermaid-'] .statediagram-cluster rect.inner {
+    stroke: var(--color-medium-purple);
+    stroke-width: 1px;
+}
+
+
+svg[id^='mermaid-'] .statediagram-cluster.statediagram-cluster .inner {
+    fill: var(--color-purple) !important;
+}
+
+svg[id^='mermaid-'] .statediagram-cluster.statediagram-cluster-alt .inner {
+    fill: var(--color-rich-black) !important;
+}
+
+svg[id^='mermaid-'] .statediagram-cluster rect {
+    fill: var(--color-lilac);
+    stroke: var(--color-medium-purple);
+    stroke-width: 1px;
+}
+
+
+
+/* vector paths, terminators */
+
+/* vector path */
+svg[id^='mermaid-'] .transition {
+    stroke: var(--color-jet);
+    stroke: var(--color-phlox) !important;
+    stroke-width: 1;
+    fill: none;
+}
+
+
+
+svg[id^='mermaid-'] #statediagram-barbEnd path {
+    stroke-width: 0.3px !important;
+    stroke: var(--color-phlox) !important;
+    fill: var(--color-cornflower-blue) !important;
+}
+
+
+
+svg[id^='mermaid-'] .node circle.state-end {
+    fill: var(--color-pumpkin) !important;
+}
+
+svg[id^='mermaid-'] .node circle.state-start {
+    fill: var(--color-dark-green) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Gantt chart styles */
+
+/* chart title header */
+svg[id^='mermaid-'] text.titleText {
+    fill: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+}
+
+/* left section column title */
+svg[id^='mermaid-'] text.sectionTitle>tspan {
+    fill: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+    font-size: var(--size-title) !important;
+}
+
+/* completed tasks (outside of pill, overridden by task text below) */
+svg[id^='mermaid-'] .doneText0,
+svg[id^='mermaid-'] .doneText1,
+svg[id^='mermaid-'] .doneText2,
+svg[id^='mermaid-'] .doneText3 {
+    fill: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+    stroke: var(--color-phlox) !important;
+}
+
+/* gantt calendar dates */
+svg[id^='mermaid-'] .grid .tick text {
+    fill: var(--color-phlox) !important;
+}
+
+/* task text */
+svg[id^='mermaid-'] .taskText {
+    font-size: 12px !important;
+}
+
+svg[id^='mermaid-'] .taskText0,
+svg[id^='mermaid-'] .taskText1,
+svg[id^='mermaid-'] .taskText2,
+svg[id^='mermaid-'] .taskText3 {
+    fill: var(--color-black-pearl) !important;
+    font-weight: bold;
+    stroke-width: 0.2px !important;
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+/* period - vertical lines */
+svg[id^='mermaid-'] .grid .tick {
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+/* horizontal section background */
+svg[id^='mermaid-'] .section {
+    stroke: none;
+    opacity: 0.25 !important;
+}
+
+/* horizontal section 0 background */
+svg[id^='mermaid-'] .section0 {
+    fill: var(--color-green-reef) !important;
+}
+
+/* horizontal section 1,3 background */
+svg[id^='mermaid-'] .section1,
+svg[id^='mermaid-'] .section3 {
+    fill: var(--color-screaming-green) !important;
+}
+
+/* horizontal section 2 background */
+svg[id^='mermaid-'] .section2 {
+    fill: var(--color-orange-salomie) !important;
+}
+
+svg[id^='mermaid-'] .section1,
+svg[id^='mermaid-'] .section3 {}
+
+svg[id^='mermaid-']>g>text.doneCritText0,
+svg[id^='mermaid-']>g>text.doneCritText1,
+svg[id^='mermaid-']>g>text.doneCritText2,
+svg[id^='mermaid-']>g>text.doneCritText3 {
+    fill: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+    stroke-width: 0.2px !important;
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+
+svg[id^='mermaid-']>g>text.activeCritText0,
+svg[id^='mermaid-']>g>text.activeCritText1,
+svg[id^='mermaid-']>g>text.activeCritText2,
+svg[id^='mermaid-']>g>text.activeCritText3 {
+    fill: var(--color-cornflower-blue) !important;
+    font-weight: bold;
+    stroke-width: 0.2px !important;
+    stroke: var(--color-cornflower-blue) !important;
+}
+
+
+
+svg[id^='mermaid-']>g>text.taskTextOutsideRight {
+    font-weight: bold;
+    stroke-width: 0.2px !important;
+    stroke: var(--color-task) !important;
+    stroke-width: 0.6px !important;
+    font-size: 16px !important;
+}
+
+svg[id^='mermaid-']>g>text.taskTextOutsideLeft {
+    font-weight: bold;
+    stroke-width: 0.6px !important;
+    stroke: var(--color-phlox) !important;
+    stroke: var(--color-task) !important;
+    font-size: 16px !important;
+}

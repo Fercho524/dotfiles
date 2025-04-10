@@ -4,9 +4,8 @@
 
 mkdir .bin .config
 
-cp -v ~/.bin/autostart.sh .bin
-cp -v ~/.bin/monitors.sh .bin
-cp -v ~/.bin/wal.sh .bin
+cp -v ~/.bin/*.sh .bin/
+
 cp -rv ~/.config/bspwm .config
 cp -rv ~/.config/rofi .config
 cp -rv ~/.config/i3 .config
@@ -28,5 +27,14 @@ cp -rv ~/.config/tint2 .config
 cp -rv ~/.config/waybar .config
 cp -rv ~/.config/xournalpp .config
 cp -rv ~/.config/zathura .config
+cp -rv ~/.config/hypr .config
+cp -rv ~/.config/swaync .config
+
+mkdir -p .config/joplin-desktop
+cp ~/.config/joplin-desktop/*.css .config/joplin-desktop
+
+mkdir -p .local/share/nautilus
+cp -rv ~/.local/share/nautilus .local/share/nautilus
+
 cp -v ~/.zshrc .
 

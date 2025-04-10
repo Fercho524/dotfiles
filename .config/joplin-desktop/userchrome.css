@@ -1,0 +1,151 @@
+/* For styling the entire Joplin app (except the rendered Markdown, which is defined in `userstyle.css`) */
+
+
+/* sidebar */
+.rli-sideBar {
+    background-color: #282828 !important;
+}
+.sidebar {
+    background-color: #282828 !important;
+}
+
+/* sidebar folders list */
+.folder-and-tag-list .list-item-container:hover {
+  background-color: #77cc88 !important;
+}
+.folder-and-tag-list .list-item-container:focus {
+  background-color: #77cc88 !important;
+}
+.folder-and-tag-list .list-item-container:active {
+  background-color: #119955 !important;
+}
+
+.folder-and-tag-list .list-item-container.selected { 
+  background-color: #119955 !important;
+}
+
+/* notes list */
+
+
+.note-list-item > .content.-selected {
+    background-color: #119955 !important;
+}
+.note-list-item:hover {
+    background-color: #77cc88 !important;
+}
+
+
+/* search icon */
+span.icon-search {
+	color: #119955 !important;
+}
+span.icon-search:hover {
+	color: #77cc88 !important;
+}
+/* clear search icon */
+div.resizableLayoutItem.rli-noteList > div > div > div > div > div > button span {
+	color: #119955 !important;
+}
+div.resizableLayoutItem.rli-noteList > div > div > div > div > div > button span:hover {
+	color: #77cc88 !important;
+}
+
+/*search result button */
+div.resizableLayoutItem.rli-editor > div > div > div > div > button {
+	background-color: #119955 !important;
+}
+div.resizableLayoutItem.rli-editor > div > div > div > div > button:hover {
+	background-color: #77cc88 !important;
+}
+
+/*search close button */
+div.search-bar > div > button > span {
+	color: #119955 !important;
+}
+div.search-bar > div > button > span:hover {
+	color: #77cc88 !important;
+}
+
+/* sort order buttons */
+button.sort-order-field-button span,
+button.sort-order-reverse-button span {
+	color: #119955 !important;
+}
+button.sort-order-field-button span:hover,
+button.sort-order-reverse-button span:hover {
+	color: #77cc88 !important;
+}
+
+
+/* new todo/note buttons */
+button.new-todo-button, 
+button.new-note-button {
+	background-color: #119955 !important;
+}
+button.new-todo-button:hover,
+button.new-note-button:hover {
+	background-color: #77cc88 !important;
+}
+button.new-todo-button > span, 
+button.new-note-button > span{
+	color: #1D2020 !important;
+}
+button.new-todo-button span:hover,
+button.new-note-button span:hover {
+	background-color: #77cc88 !important;
+	color: #1D2020 !important;
+}
+
+/* text-area search background */
+div.resizableLayoutItem.rli-editor > div > div > div > div:has(> div.note-search-bar) {
+    background-color: #2a2c32 !important;
+}
+
+/* text-area search input-field background */
+div.note-search-bar input {
+    background-color: #242424 !important; 
+}
+
+/* tag-bar */
+div.tag-bar {
+    background-color: #2a2c32 !important;
+}
+
+/* warning banner */
+div.warning-banner {
+    background-color: #995511 !important;
+}
+
+/* links */
+div.CodeMirror span.cm-url {
+	color: #77cc88 !important;
+	opacity: 1.0;
+}
+div.CodeMirror span.cm-link-text {
+	color: #77cc88 !important;
+}
+div.CodeMirror span.tok-link {
+    color: #77cc88 !important;
+}
+div.CodeMirror span.cm-url span.tok-url {
+    color: #77cc88 !important;
+    opacity: 1.0;
+}
+div.CodeMirror span.cm-link-text span.tok-url {
+    color: #77cc88 !important;
+}
+
+/* wider text-area scrollbar */
+.CodeMirror ::-webkit-scrollbar-track {
+  background-color: #080808; 
+}
+.CodeMirror ::-webkit-scrollbar {
+  width: 10px;
+}
+.CodeMirror ::-webkit-scrollbar-thumb {
+  height: 48px;
+  background: #404040;
+}
+.CodeMirror ::-webkit-scrollbar-thumb:hover {
+  background: #585858; 
+}

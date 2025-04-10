@@ -4,13 +4,20 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Get the image path
 if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
-   image=$(cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2)
+   file_path=$(cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2)
 elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
-   image="$(cat ~/.config/waypaper/config.ini | grep "wallpaper =" | cut -d "=" -f 2)"
+   file_path="$(cat ~/.config/waypaper/config.ini | grep "wallpaper =" | cut -d "=" -f 2)"
 fi
 
-# Generate color palette
-zsh -c "wal -i $(echo $image) -e -n"
+expanded_path=$(eval echo "$file_path")
+image=$(echo "$expanded_path" | sed 's/\~/$HOME/g')
+
+# Copy image to temp files with a program friendly name
+cp "$image" /tmp/wallpaper
+rm -rfv ~/.cache/wal
+
+# Apply wallpaper and color palette
+wal -i /tmp/wallpaper -e -n
 
 # Reinicia sólo lo necesario, no todo el entorno
 if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
@@ -35,11 +42,3 @@ cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors.conf
 
 # Rofi Colors
 python ~/.config/rofi/walrofi.py
-
-# Change Icon Colors Acording to Color 1
-icon_colors=$(python ~/.bin/wallpy.py $color1)
-variant=dark
-
-gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
-sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
-sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini

@@ -52,7 +52,6 @@ bindsym $mod+t layout tabbed
 bindsym $mod+o layout toggle split
 bindsym $mod+g layout toggle split
 
-
 ####################################################################################
 
 
@@ -61,12 +60,15 @@ bindsym $mod+Return exec kitty
 bindsym $mod+e exec nautilus
 
 # UTILITIES
-bindsym $mod+p ~/.bin/colorpicker.sh
+bindsym $mod+p exec ~/.bin/colorpicker.sh 
 
 # SCREENSHOTS
 bindsym $mod+Print exec bash ~/.bin/screenshot.sh full-save
 bindsym Print exec bash ~/.bin/screenshot.sh area-save 
-bindsym $mod+F6 exec wlsunset -T 4500
+
+# NIGHT LIGHT
+bindsym $mod+F5 exec wlsunset -T 4500
+bindsym $mod+F6 exec killall wlsunset
 
 # APPLETS
 bindsym $mod+m exec ~/.config/rofi/launchers/launcher.sh drun
@@ -91,14 +93,15 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute  @DEFAULT_SO
 
 # WORKSPACES NAMES
 set $ws1  "1:    " 
-set $ws2  "2:  󰂺  "
-set $ws3  "3:    "
-set $ws4  "4:    "
-set $ws5  "5:    "
-set $ws6  "6:  󰎁  "
+set $ws2  "2:    "
+set $ws3  "3:    "
+set $ws4  "4:  󰠮  "
+set $ws5  "5:  󰎁  "
+set $ws6  "6:    "
 set $ws7  "7:    "
 set $ws8  "8:    "
 set $ws9  "9:    "
+set $ws9  "0:  󰒋  "
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace number $ws1
@@ -110,6 +113,7 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws0
 
 # MOVE FOCUSED TO WORKSPACE
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -121,6 +125,7 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws0
 
 # SWITCH BETWEEN PREVIUS AND NEXT WORLSPACE
 bindsym $mod+Next workspace next

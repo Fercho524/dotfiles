@@ -34,8 +34,8 @@ alias br='bspc rule'
 ################################################################################
 
 
-bspc monitor ^1 -d "" "" "" "" "" "" "" "" ""
-
+bspc monitor ^1 -d "" "" "" "" "" ""  
+bspc monitor ^2 -d "" "" "󰕼"
 
 
 ################################################################################
@@ -44,17 +44,17 @@ bspc monitor ^1 -d "" "" "" "" "" "" "" "" ""
 
 
 #   Borders
-bc border_width 0
-bspc config border_radius	2
+bc border_width 3
+bspc config border_radius	0
 bc borderless_monocle true
 
 #   Random
-bc split_ratio 0.62
+bc split_ratio 0.5
 bc single_monocle        false
 
 #   Focus
 bc pointer_follows_focus true
-bc focus_follows_pointer true       
+bc focus_follows_pointer false       
 bc pointer_action2 resize_corner
 
 # Gaps

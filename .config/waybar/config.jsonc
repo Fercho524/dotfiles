@@ -1,12 +1,11 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 45,
+    "height": 35,
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "sway/workspaces",
         "custom/media"
     ],
     "modules-center": [
@@ -158,7 +157,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon} {format_source}  ",
         "format-bluetooth": "{volume}% {icon}   {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

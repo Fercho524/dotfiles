@@ -1,74 +1,74 @@
-# User's dunst configuration. Mechanical artistic.
-# https://github.com/owl4ce/dotfiles
-
 [global]
-follow = mouse
-width = (120, 500)
-height = 250
-origin = top-right
-offset = 6x50
-
-progress_bar_height = 5
-progress_bar_min_width = 0
-progress_bar_max_width = 444
-progress_bar_frame_width = 0
-
-transparency = 3
-horizontal_padding = 11
-frame_width = 6
-frame_color = "#000000"
-gap_size = 8
-separator_color = "#000000"
-idle_threshold = 120
-
-font = "Sitka Banner 10"
-
-format = "<span weight='bold' font_desc='Bowlby One SC 8' size='large'>%a</span>\n<span font_desc='Sitka Banner 12' foreground='#f9f9f9'>%s</span>\n%b"
-
-show_age_threshold = 60
-icon_position = right
-min_icon_size = 48
-max_icon_size = 80
-
-#icon_path = "/usr/share/icons/Papirus-Dark-Custom/48x48/actions/:/usr/share/icons/Papirus-Dark-Custom/48x48/apps/:/usr/share/icons/Papirus-Dark-Custom/48x48/devices/:/usr/share/icons/Papirus-Dark-Custom/48x48/emblems/:/usr/share/icons/Papirus-Dark-Custom/48x48/emotes/:/usr/share/icons/Papirus-Dark-Custom/48x48/mimetypes/:/usr/share/icons/Papirus-Dark-Custom/48x48/places/:/usr/share/icons/Papirus-Dark-Custom/48x48/status/"
-
-enable_recursive_icon_lookup = true
-icon_theme = "Papirus-Dark-Custom"
-
-sticky_history = false
-
-dmenu = "rofi -theme-str '@import "action.rasi"' -no-show-icons -no-lazy-grab -no-plugins -dmenu -mesg 'Context Menu'"
-
-browser = "your_web_browser"
-
-mouse_left_click = close_current
-mouse_middle_click = context_all
-mouse_right_click = close_all
-
-alignment = left
-markup = full
-always_run_script = true
-
-corner_radius = 8
+    monitor = 0
+    follow = none
+    width = 420
+    height = 130
+    origin = top-center
+    alignment = "left"
+    vertical_alignment = "center"
+    ellipsize = "middle"
+    offset = "6x6"
+    padding = 15
+    horizontal_padding = 15
+    text_icon_padding = 15
+    icon_position = "left"
+    min_icon_size = 48
+    max_icon_size = 48
+    progress_bar = true
+    progress_bar_height = 7
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_corner_radius = 2
+    progress_bar_corners = 0
+    progress_bar_max_width = 300
+    separator_height = 2
+    frame_width = 1
+    frame_color = "#45475a"
+    separator_color = "#45475a"
+    corner_radius = 10
+    transparency = 0.5
+    gap_size = 8
+    line_height = 0
+    notification_limit = 0
+    idle_threshold = 120
+    history_length = 20
+    show_age_threshold = 60
+    markup = "full"
+    font = "Leelawadee UI 10"
+    format = "<b>%s</b>\n%b:
+    word_wrap = "yes"
+    sort = "yes"
+    shrink = "no"
+    indicate_hidden = "yes"
+    sticky_history = "no"
+    ignore_newline = "no"
+    show_indicators = "no"
+    stack_duplicates = true
+    always_run_script = true
+    hide_duplicate_count = false
+    ignore_dbusclose = false
+    force_xwayland = false
+    force_xinerama = false
+    mouse_left_click = "do_action"
+    mouse_middle_click = "close_all"
+    mouse_right_click = "close_current"
+[experimental]
+    per_monitor_dpi = false
 
 [urgency_low]
-timeout = 3
-background = "#000000"
-foreground = "#f9f9f9"
-highlight = "#f48ee8"
+    background = "#250d25"
+    foreground = "#e2c9e4"
+    highlight = "#DF2ECF"
+    timeout = 4
 
 [urgency_normal]
-timeout = 6
-background = "#000000"
-foreground = "#f9f9f9"
-highlight = "#f48ee8"
+    background = "#250d25"
+    foreground = "#e2c9e4"
+    highlight = "#DF2ECF"
+    timeout = 6
 
 [urgency_critical]
-timeout = 0
-background = "#000000"
-foreground = "#f9f9f9"
-highlight = "#f48ee8"
-
-[joyful_desktop]
-appname = "joyful_desktop"
-history_ignore = true
+    timeout = 10
+    background = "#250d25"
+    foreground = "#e2c9e4"
+    highlight = "#DF2ECF"

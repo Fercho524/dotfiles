@@ -146,7 +146,7 @@ border_color_pressed = #a1a8b9 0
 
 #-------------------------------------
 # Panel
-panel_items = PPTPPPPPPEEEEE:S:C
+panel_items = PPTPPPPPPEEEE:S:C
 panel_size = 100% 43
 panel_margin = 0 0
 panel_padding = 7 7 7
@@ -278,7 +278,7 @@ button = new
 button_text = 
 button_tooltip = Open your favorite apps
 button_lclick_command = ~/.config/rofi/launchers/launcher.sh window
-button_rclick_command =
+button_rclick_command = ~/.config/rofi/applets/bin/powermenu.sh
 button_mclick_command =
 button_uwheel_command =
 button_dwheel_command =
@@ -291,103 +291,124 @@ button_max_icon_size = 0
 
 #-------------------------------------
 # TERMINAL LAUNCHER
-button = new
-button_text = 
-button_tooltip = Open the terminal
-button_lclick_command = kitty
-button_rclick_command = alacritty
-button_mclick_command = xterm
-button_uwheel_command =
-button_dwheel_command =
-button_font = Iosevka 25
-button_font_color = #f9f9f9 100
-button_padding = 12 0
-button_background_id = 4
-button_centered = 1
-button_max_icon_size = 0
+# button = new
+# button_text = 
+# button_tooltip = Open the terminal
+# button_lclick_command = kitty
+# button_rclick_command = alacritty
+# button_mclick_command = xterm
+# button_uwheel_command =
+# button_dwheel_command =
+# button_font = Iosevka 25
+# button_font_color = #f9f9f9 100
+# button_padding = 12 0
+# button_background_id = 4
+# button_centered = 1
+# button_max_icon_size = 0
 
 #-------------------------------------
 # WALLPAPER TOOL
-button = new
-button_text = 
-button_tooltip = Change current wallpaper │ Generate wallpaper
-button_lclick_command = nitrogen
-button_rclick_command = nitrogen
-button_mclick_command =
-button_uwheel_command =
-button_dwheel_command =
-button_font = Iosevka 25
-button_font_color = #f9f9f9 100
-button_padding = 12 0
-button_background_id = 4
-button_centered = 1
-button_max_icon_size = 0
+# button = new
+# button_text = 
+# button_tooltip = Change current wallpaper │ Generate wallpaper
+# button_lclick_command = nitrogen
+# button_rclick_command = nitrogen
+# button_mclick_command =
+# button_uwheel_command =
+# button_dwheel_command =
+# button_font = Iosevka 25
+# button_font_color = #f9f9f9 100
+# button_padding = 12 0
+# button_background_id = 4
+# button_centered = 1
+# button_max_icon_size = 0
 
 #-------------------------------------
 # POWERMENU
-button = new
-button_text = ⏻
-button_tooltip = Power Menu
-button_lclick_command = ~/.config/rofi/applets/bin/powermenu.sh
-button_rclick_command =
-button_mclick_command =
-button_uwheel_command =
-button_dwheel_command =
-button_font = Iosevka 20
-button_font_color = #f9f9f9 100
-button_padding = 12 0
-button_background_id = 4
-button_centered = 1
-button_max_icon_size = 0
+# button = new
+# button_text = ⏻
+# button_tooltip = Power Menu
+# button_lclick_command = ~/.config/rofi/applets/bin/powermenu.sh
+# button_rclick_command = ~/.config/rofi/applets/bin/powermenu.sh
+# button_mclick_command =
+# button_uwheel_command =
+# button_dwheel_command =
+# button_font = Iosevka 20
+# button_font_color = #f9f9f9 100
+# button_padding = 12 0
+# button_background_id = 4
+# button_centered = 1
+# button_max_icon_size = 0
 
 #-------------------------------------
 # CLIPBOARD TO LOQUENDO
-button = new
-button_text = 󰔊
-button_tooltip = Copy a text and click here for use loquendo
-button_lclick_command = ~/.bin/say.sh
-button_rclick_command = 
-button_mclick_command =
-button_uwheel_command =
-button_dwheel_command =
-button_font = Iosevka 17
-button_font_color = #f9f9f9 100
-button_padding = 16 0
-button_background_id = 4
-button_centered = 1
-button_max_icon_size = 0
+# button = new
+# button_text = 󰔊
+# button_tooltip = Copy a text and click here for use loquendo
+# button_lclick_command = ~/.bin/say.sh
+# button_rclick_command = 
+# button_mclick_command =
+# button_uwheel_command =
+# button_dwheel_command =
+# button_font = Iosevka 17
+# button_font_color = #f9f9f9 100
+# button_padding = 16 0
+# button_background_id = 4
+# button_centered = 1
+# button_max_icon_size = 0
 
 #-------------------------------------
 # APPS
-button = new
-button_text = 󰑋 
-button_tooltip = Left click full screen, Right click stop recording, midclick record area
-button_lclick_command = ~/.bin/screenrecord.sh full
-button_rclick_command = ~/.bin/screenrecord.sh area
-button_mclick_command = ~/.bin/screenrecord.sh stop
-button_uwheel_command =
-button_dwheel_command =
-button_font = Iosevka 25
-button_font_color = #f9f9f9 100
-button_padding = 16 0
-button_background_id = 4
-button_centered = 1
-button_max_icon_size = 0
+# button = new
+# button_text = 󰑋 
+# button_tooltip = Left click full screen, Right click stop recording, midclick record area
+# button_lclick_command = ~/.bin/screenrecord.sh full
+# button_rclick_command = ~/.bin/screenrecord.sh area
+# button_mclick_command = ~/.bin/screenrecord.sh stop
+# button_uwheel_command =
+# button_dwheel_command =
+# button_font = Iosevka 25
+# button_font_color = #f9f9f9 100
+# button_padding = 16 0
+# button_background_id = 4
+# button_centered = 1
+# button_max_icon_size = 0
 
 #-------------------------------------
-# Executor 1
+# NETWORK SPEED
 execp = new
 execp_command = ~/.config/tint2/scripts/netspeed.sh
 execp_font = $applet_font 10
 execp_font_color = #2f343f 100
 execp_padding = 15 0
-execp_background_id = 3
+execp_background_id = 1
 execp_interval = 2
-execp_border_radius = 16
 execp_continuous = 1
 
 #-------------------------------------
-# Executor 2
+# VOLUME
+execp = new
+execp_command = ~/.config/tint2/scripts/volume.sh
+execp_font = $applet_font 10
+execp_font_color = #2f043f 100
+execp_padding = 12 0
+execp_background_id = 2
+execp_interval = 1
+execp_continuous = 1
+
+#-------------------------------------
+# CPU USAGE
+execp = new
+execp_command = ~/.config/tint2/scripts/cpu.sh
+execp_font = $applet_font 10
+execp_font_color = #2f043f 100
+execp_padding = 12 0
+execp_background_id = 9
+execp_interval = 2
+execp_continuous = 1
+
+#-------------------------------------
+# RAM USAGE
 execp = new
 execp_command = ~/.config/tint2/scripts/memory.sh
 execp_font = $applet_font 10
@@ -395,31 +416,28 @@ execp_font_color = #2f043f 100
 execp_padding = 12 0
 execp_background_id = 1
 execp_interval = 2
-execp_border_radius = 16
 execp_continuous = 1
 
 #-------------------------------------
-# Executor 3
+# GPU USAGE
 execp = new
-execp_command = ~/.config/tint2/scripts/cpu.sh
-execp_font = $applet_font 10
-execp_font_color = #2f043f 100
-execp_padding = 12 0
-execp_background_id = 2
-execp_interval = 2
-execp_border_radius = 16
-execp_continuous = 1
-
-#-------------------------------------
-# Executor 3
-execp = new
-execp_command = ~/.config/tint2/scripts/volume.sh
+execp_command = ~/.config/tint2/scripts/gpu.sh
 execp_font = $applet_font 10
 execp_font_color = #2f043f 100
 execp_padding = 12 0
 execp_background_id = 9
-execp_interval = 1
-execp_border_radius = 16
+execp_interval = 2
+execp_continuous = 1
+
+#-------------------------------------
+# VRAM USAGE
+execp = new
+execp_command = ~/.config/tint2/scripts/vram.sh
+execp_font = $applet_font 10
+execp_font_color = #2f043f 100
+execp_padding = 12 0
+execp_background_id = 1
+execp_interval = 2
 execp_continuous = 1
 
 -------------------------------------

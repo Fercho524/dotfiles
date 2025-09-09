@@ -18,7 +18,9 @@ dir="$HOME/.config/rofi/launchers/type-1"
 theme='style-6'
 applet=$1
 
-## Run
-rofi \
-    -show $applet \
-    -theme ${dir}/${theme}.rasi
+apps=("vktablet" "gimp" "krita" "kdenlive")
+
+choice=$(printf "%s\n" "${apps[@]}" | rofi -show $applet -theme ${dir}/${theme}.rasi )
+echo $choice
+
+[[ -n "$choice" ]] && ~/.local/bin/launch_with_xcb.sh "$choice" &

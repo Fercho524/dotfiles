@@ -18,7 +18,7 @@ super  e
   ~/.config/openbox/nautilus.sh
 
 super + 0
-  sh ~/.bin/wal.sh
+  sh ~/.bin/wal.sh &
 
 # ROFI
 
@@ -37,13 +37,6 @@ super + r
 # Switch between windows
 super + Tab
   ~/.config/rofi/launchers/launcher.sh window
-
-# REDSHIFT, night light
-super + F6 
-  redshift -O 6000
-
-super + F5
-  redshift -x
 
 # SCREENSHOTS, flameshot is the best fox xssesions
 super + Print
@@ -79,31 +72,57 @@ super + l
 #         HARDWARE
 ######################################################################
 
-#pactl set-sink-volume @DEFAULT_SINK@ +5%
-# VOLUME, use  pamixer or pactl
-# Up volume : pamixer -i 5
-XF86AudioRaiseVolume 
-  ~/.bin/volume.sh up
+# AUDIO Keys F1 - F4
+super + F1
+  ~/.bin/volume.sh mute
 
-  #pactl set-sink-volume @DEFAULT_SINK@ -5%
-# Low volume :pamixer -d 5
+XF86AudioMute
+  ~/.bin/volume.sh mute
+
 XF86AudioLowerVolume 
   ~/.bin/volume.sh down
 
-# Mute speaker : pamixer --t --get-default-sink
-XF86AudioMute
-  ~/.bin/volume.sh mute
-  
-# Mute microphone : pamixer -t --default-source
+super + F2
+  ~/.bin/volume.sh down
+
+XF86AudioRaiseVolume 
+  ~/.bin/volume.sh up
+
+super + F3
+  ~/.bin/volume.sh up
+
+super + F4
+  ~/.bin/volume.sh mic
+
 XF86AudioMicMute
   ~/.bin/volume.sh mic
 
-# BRIGHTNESS, only works for laptops with FN key
+
+# BRIGHTNESS MONITOR
+super + F5
+  ~/.bin/brightness.sh down
+super + F6
+  ~/.bin/brightness.sh up 
+
+# BRIGHTNESS LAPTOP
+XF86MonBrightnessDown
+  brightnessctl set 5%-
+
 XF86MonBrightnessUp
   brightnessctl set +5%
 
-XF86MonBrightnessDown
-  brightnessctl set 5%-
+# Monitors Toggle
+XF86Display
+  ~/.bin/monitors.sh
+
+
+# NIGHT LIGHT
+super + F7
+  xrandr --output HDMI-0 --gamma 1.0:0.8:0.7 --brightness "$(xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ')"
+
+super + F8
+  xrandr --output HDMI-0 --gamma 1.0:1.0:1.0 --brightness "$(xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ')"
+
 
 ######################################################################
 #         WINDOW MANAGEMENT
@@ -117,6 +136,10 @@ super + f
 super + w
   bspc node --focus --close
 
+# Fulscreen
+super + F11 
+  bspc node -t {fullscreen,tiled}
+
 # Rezize Windows 
 super + {Up,Down,Left,Right}
   {bspc node -z top 10 10; bspc node -z bottom -10 -10, bspc node -z bottom 10 10; bspc node -z top -10 -10, bspc node -z left 10 10; bspc node -z right -10 -10, bspc node -z right 10 10; bspc node -z left -10 -10 }
@@ -124,10 +147,6 @@ super + {Up,Down,Left,Right}
 #  Move windows
 super + shift + {Up,Down,Left,Right}
   bspc node -s {north,south,west,east}
-
-# Fulscreen
-super + F11 
-  bspc node -t {fullscreen,tiled}
 
 # AvPág key
 super + Next  
@@ -140,13 +159,6 @@ super + Prior
 ######################################################################
 #         CUSTOM ATACHMENDS
 ######################################################################
-
-super + F2
-  ~/.bin/monitors.sh on 
-
-super +F3
-  ~/.bin/monitors.sh off 
-
 
 super + p
   ~/.bin/colorpicker.sh

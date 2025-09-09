@@ -14,7 +14,5 @@ if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
 	fi
 
 elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
-	# Este comando largísimo funciona en wayland
-	#color=$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | grep -Eo '#[0-9A-Fa-f]{6}')
-	hyprpicker -q
+	hyprpicker -a
 fi

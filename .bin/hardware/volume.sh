@@ -1,6 +1,5 @@
 #!/bin/bash
 
-distro="arch"
 source ~/.bin/env.sh
 
 if [[ $distro = "fedora" ]]; then

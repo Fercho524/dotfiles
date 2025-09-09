@@ -1,18 +1,11 @@
 #!/bin/bash
 
+distro="arch"
+
 export INTERFACE_SCHEME="dark"
 export INTERFACE_ACCENT_COLOR="wal" # "define your color"
 
-#INTERFACE_THEME_PREFIX = "WhiteSur"
-#INTERFACE_THEME_VARIANT = ""
-#INTERFACE_ICON_PREFIX = "Tela-circle"
-
-
-
-
-# distro="arch"
-
-# # GTK THEMING
+# GTK THEMING
 
 # export GTK_ICON_THEME='Tela-circle-purple-dark'
 # export GTK_CURSOR_THEME='Sweet-cursors'

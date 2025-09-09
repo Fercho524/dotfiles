@@ -2,7 +2,7 @@
     monitor = 0
     follow = none
     width = 420
-    height = 130
+    height = (0,130)
     origin = top-center
     alignment = "left"
     vertical_alignment = "center"
@@ -56,19 +56,19 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#250d25"
-    foreground = "#e2c9e4"
-    highlight = "#DF2ECF"
+    background = "#35170f"
+    foreground = "#f5eade"
+    highlight = "#6C8DC0"
     timeout = 4
 
 [urgency_normal]
-    background = "#250d25"
-    foreground = "#e2c9e4"
-    highlight = "#DF2ECF"
+    background = "#35170f"
+    foreground = "#f5eade"
+    highlight = "#6C8DC0"
     timeout = 6
 
 [urgency_critical]
     timeout = 10
-    background = "#250d25"
-    foreground = "#e2c9e4"
-    highlight = "#DF2ECF"
+    background = "#35170f"
+    foreground = "#f5eade"
+    highlight = "#6C8DC0"

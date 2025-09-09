@@ -18,20 +18,10 @@ cp "$image" /tmp/wallpaper
 rm -rfv ~/.cache/wal
 
 # Apply wallpaper and color palette
-#wal -i /tmp/wallpaper -e -n -l
-echo $INTERFACE_SCHEME
-
 if [[ $(echo $INTERFACE_SCHEME) = "light" ]]; then
    wal -i /tmp/wallpaper -e -n -l
 elif [[ $(echo $INTERFACE_SCHEME) = "dark" ]]; then
    wal -i /tmp/wallpaper -e -n
-fi
-
-
-# Reinicia centro de notificaciones
-if [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
-   killall swaync
-   swaync &
 fi
 
 # Reinicia panel
@@ -46,20 +36,27 @@ cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors.conf
 # Rofi Colors
 python ~/.config/rofi/walrofi.py
 
+# Wlcolors
+cp ~/.cache/wal/colors-waybar.css ~/.config/wlogout
+
 # Hyprland colors
 python ~/.bin/theme/hyprwal.py ~/.cache/wal/colors.json ~/.config/hypr/theme/colors.conf
 
-# Notifications
+# Dunst config rebuild
 killall dunst -q
 ~/.bin/theme/update_notify.sh
 dunst && echo "khemamadas"
-notify-send "¡Hola" "Dunst está funcionando correctamente"
-
+notify-send "Scheme update succesfully" "Se ha cambiado correctamente la configuración del tema acorde al fondo de pantalla"
 
 # Change GTK Icon Color
 icon_colors=$(python ~/.bin/theme/get_icon_variant.py $color2)
 variant=dark
 
+# RGB
+color="${color1#\#}"
+openrgb -c $color -sp
+
+# Apply GTK Theme
 gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
 sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
 sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini

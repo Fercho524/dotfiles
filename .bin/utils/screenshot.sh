@@ -2,6 +2,10 @@
 
 mode=$1
 SCREENSHOTS_DIR=$(xdg-user-dir PICTURES)/Screenshots/
+
+mkdir -p $(xdg-user-dir PICTURES)/Screenshots/
+
+
 timestamp=$(date +'%Y-%m-%d-%H-%M-%S')
 
 if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then

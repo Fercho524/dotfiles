@@ -1,0 +1,24 @@
+# Estilo general inspirado en macOS
+anchor=top-center
+font=SF Pro Display 11
+background-color=#130f10E6
+text-color=#cbbfc3
+width=500
+max-history=5
+margin=10,30,10                     # margen top, right/left, bottom
+padding=20,30                      # padding vertical, horizontal
+border-size=0
+border-radius=10
+default-timeout=10000              # 10 segundos
+icons=1
+
+# Agregar sombra: solo se puede simular con un borde tenue
+border-color=#6766A0
+border-size=1
+
+[grouped]
+format=<b>%s</b>\n%b
+
+[urgency=critical]
+background-color=#130f10E6
+text-color=#cbbfc3

@@ -1,0 +1,8 @@
+{
+    "custom/cpu": {
+        "format": "{}",
+        "return-type": "",
+        "interval": 1,
+        "exec": "$HOME/.bin/info/cpu.sh 2> /dev/null"
+    }
+}

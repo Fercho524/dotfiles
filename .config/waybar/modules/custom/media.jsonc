@@ -1,0 +1,10 @@
+{
+    "custom/media": {
+        "format": "{}",
+        "return-type": "",
+        "interval": 1,
+        "max-length": 15,
+        "exec": "$HOME/.bin/info/songdetail.sh",
+        "on-click": "playerctl play-pause"
+    }
+}

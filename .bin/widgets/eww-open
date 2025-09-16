@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+killall eww -9
+eww daemon
+eww open-many \
+    today \
+    computer user \
+    workspaces \
+    music albumArt \
+    pacman screenctl dunst systemctl \
+    assistant

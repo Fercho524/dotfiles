@@ -1,0 +1,9 @@
+{
+    "custom/updater": {
+        "format": "  {} Updates",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e yay -Syu"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "custom/cuda": {
+        "format": "{}",
+        "return-type": "",
+        "interval": 1,
+        "exec": "$HOME/.bin/info/gpu.sh 2> /dev/null"
+    }
+}

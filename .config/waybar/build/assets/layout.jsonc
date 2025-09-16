@@ -1,0 +1,30 @@
+{
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 44,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom": 8,
+    "margin-right": 8,
+    "margin-left": 8,
+    "include": [
+        "~/.config/waybar/include.jsonc",
+        "~/.config/waybar/include/include.jsonc"
+    ],
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "disk",
+        "custom/network"
+    ],
+    "modules-center": [
+        "wlr/taskbar"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "custom/cpu",
+        "memory",
+        "tray",
+        "clock"
+    ]
+}

@@ -1,15 +1,33 @@
 {
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-    },
-
-    "format": "{icon} {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}"
-  }
+    "battery": {
+        "interval": 5,
+        "states": {
+            "good": 85,
+            "warning": 30,
+            "critical": 15
+        },
+        "events": {
+            "on-discharging-warning": "swayosd-client --custom-message='Batería baja' --custom-icon=battery-low",
+            "on-discharging-critical": "swayosd-client --custom-message='Batería muy baja' --custom-icon=battery-caution",
+            "on-charging-100": "~/.bin/splash/battery.sh full"
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂏 {capacity}%",
+        "format-plugged": "󰂏 {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-full": " {capacity}%",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    }
 }

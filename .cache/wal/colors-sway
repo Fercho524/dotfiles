@@ -1,0 +1,21 @@
+set $wallpaper /tmp/wallpaper
+
+set $background #0E1855
+set $foreground #a5c2da
+
+set $color0 #0E1855
+set $color1 #662B99
+set $color2 #3B549F
+set $color3 #952EA9
+set $color4 #F9128F
+set $color5 #F616A2
+set $color6 #DD63AB
+set $color7 #a5c2da
+set $color8 #738798
+set $color9 #662B99
+set $color10 #3B549F
+set $color11 #952EA9
+set $color12 #F9128F
+set $color13 #F616A2
+set $color14 #DD63AB
+set $color15 #a5c2da

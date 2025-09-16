@@ -18,6 +18,7 @@
         "custom/network",
         "pulseaudio",
         "custom/cpu",
+        "temperature",
         "custom/memory",
         "custom/cuda",
         "custom/vram",

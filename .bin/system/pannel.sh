@@ -9,7 +9,7 @@ elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
       python ~/.bin/theme/create-waybar.py \
       --left "custom/launcher" "wlr/taskbar" \
       --center "hyprland/workspaces" \
-      --right "custom/network" "pulseaudio" "custom/cpu" "temperature" "custom/memory" "custom/cuda" "custom/vram" "disk" "tray" "clock" \
+      --right "custom/network" "pulseaudio" "custom/cpu" "custom/memory" "custom/cuda" "custom/vram" "disk" "tray" "clock" \
       --position bottom \
       --margin 8
    else

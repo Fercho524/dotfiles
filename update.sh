@@ -23,6 +23,8 @@ cp -rv /home/fercho/.config/swaync  .config/
 cp -rv /home/fercho/.config/sxhkd  .config/
 cp -rv /home/fercho/.config/tint2  .config/
 cp -rv /home/fercho/.config/waybar  .config/
+cp -rv /home/fercho/.config/wlogout  .config/
+cp -rv /home/fercho/.config/eww  .config/
 
 # Nautilus scripts
 mkdir -p .local/nautilus/scripts

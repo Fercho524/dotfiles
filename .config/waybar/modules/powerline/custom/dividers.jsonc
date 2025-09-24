@@ -1,0 +1,103 @@
+{
+	/*-------------------
+		left dividers
+	-------------------*/
+
+	"custom/left_divA": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divB": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divC": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divD": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divE": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divF": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divG": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divH": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divI": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_divJ": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_invA": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left_invB": {
+		"format": "",
+		"tooltip": false
+	},
+
+	/*--------------------
+		right dividers
+	--------------------*/
+
+	"custom/right_divA": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divB": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divC": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divD": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divE": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divF": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divG": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divH": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divI": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_divJ": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right_invA": {
+		"format": "",
+		"tooltip": false
+	}
+}

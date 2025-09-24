@@ -68,6 +68,7 @@ window#waybar.hidden {
 #disk,
 #temperature,
 #backlight,
+#bluetooth,
 #network,
 #pulseaudio,
 #custom-media,
@@ -140,6 +141,10 @@ window#waybar.hidden {
 
 #battery.charging {
   background-color: #7bc275;
+}
+
+#bluetooth {
+  background-color: @color1;
 }
 
 #battery.critical:not(.charging) {

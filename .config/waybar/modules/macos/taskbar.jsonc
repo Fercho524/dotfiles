@@ -1,0 +1,13 @@
+{
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "active-first": true,
+        "icon-size": 48,
+        "icon-theme": "Tela-circle-grey",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize",
+        "all-outputs": false
+    }
+}

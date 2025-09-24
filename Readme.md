@@ -6,6 +6,37 @@ Bienvenid@ a mi configuración de Archlinux, al menos por el momento. Tratando d
 
 Toma con cuidado cada comando y no lo ejecutes todo a lo bastardo, no lo he hecho pensando en eso, sólo es una idea de que hacer luego de copiar los archivos a tu directorio home.
 
+## Temas disponibles
+
+### Tonal
+
+Modificar : `~/.config/waybar/waybar.sh`
+
+```sh
+#!/bin/sh
+killall waybar
+source ~/.config/waybar/themes/tonal/run.sh
+```
+
+![](.screenshots/tonal/2025-09-09-14-09-25.png)
+![](.screenshots/tonal/2025-09-11-23-36-57.png)
+![](.screenshots/tonal/2025-09-15-20-59-42.png)
+
+
+### Powerline
+Modificar : `~/.config/waybar/waybar.sh`
+
+```sh
+#!/bin/sh
+killall waybar
+source ~/.config/waybar/themes/powerline/run.sh
+```
+
+![](.screenshots/powerline/2025-09-23-21-57-20.png)
+![](.screenshots/powerline/2025-09-23-22-15-33.png)
+![](.screenshots/powerline/2025-09-23-22-18-31.png)
+
+
 ## Instalación
 
 ### ZSH

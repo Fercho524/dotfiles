@@ -1,0 +1,6 @@
+{
+    "custom/layout": {
+        "format": "",
+        "on-click": "bash ~/.bin/info/layout.sh"
+    }
+}

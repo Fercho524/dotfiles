@@ -1,6 +1,0 @@
-{
-    "memory": {
-        "format": " {used}GB / {total} GB 󰒋 ",
-        "interval": 1
-    }
-}

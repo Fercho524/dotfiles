@@ -1,0 +1,8 @@
+{
+  "custom/launcher": {
+    "format": "   ",
+    "return-type": "",
+    "on-click": "$HOME/.config/rofi/launchers/launcher.sh drun",
+    "on-click-right": "$HOME/.bin/theme/toggle-theme.sh"
+  }
+}

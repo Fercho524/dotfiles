@@ -1,67 +1,103 @@
 #!/bin/bash
 
+# ==============================
+# Variables globales y entorno
+# ==============================
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 source /home/fercho/.bin/env.sh
 
-# Get the image path
-if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
-  file_path=$(cat ~/.config/nitrogen/bg-saved.cfg | head -n 2 | tail -n 1 | cut -d = -f 2)
-elif [[ $(echo $XDG_SESSION_TYPE) = "wayland" ]]; then
-  file_path="$(cat ~/.config/waypaper/config.ini | grep "wallpaper =" | cut -d "=" -f 2)"
-fi
 
-expanded_path=$(eval echo "$file_path")
-image=$(echo "$expanded_path" | sed 's/\~/$HOME/g')
+# ==============================
+# Funciones
+# ==============================
 
-# Copy image to temp files with a program friendly name
-cp "$image" /tmp/wallpaper
-rm -rfv ~/.cache/wal
+get_wallpaper_path() {
+  if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
+    file_path=$(awk -F= 'NR==2 {print $2}' ~/.config/nitrogen/bg-saved.cfg)
+  elif [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
+    file_path=$(grep "wallpaper =" ~/.config/waypaper/config.ini | cut -d "=" -f 2-)
+  fi
 
-# Apply wallpaper and color palette
-if [[ $(echo $INTERFACE_SCHEME) = "light" ]]; then
-  wal -i /tmp/wallpaper -e -n -l
-elif [[ $(echo $INTERFACE_SCHEME) = "dark" ]]; then
-  wal -i /tmp/wallpaper -e -n
-fi
+  expanded_path=$(eval echo "$file_path")
+  echo "$expanded_path" | sed 's/\~/$HOME/g'
+}
 
-# Reinicia panel
-~/.bin/system/pannel.sh
+prepare_wallpaper() {
+  local image="$1"
+  cp "$image" /tmp/wallpaper
+  rm -rfv ~/.cache/wal
+}
 
-# Get the colors
-source ~/.cache/wal/colors.sh
+apply_colorscheme() {
+  if [[ "$INTERFACE_SCHEME" = "light" ]]; then
+    wal -i /tmp/wallpaper -e -n -l
+  elif [[ "$INTERFACE_SCHEME" = "dark" ]]; then
+    wal -i /tmp/wallpaper -e -n
+  fi
+}
 
-# Kitty Theme
-cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors.conf
+restart_panel() {
+  ~/.bin/system/pannel.sh
+}
 
-# Rofi Colors
-python ~/.config/rofi/walrofi.py
+apply_kitty_theme() {
+  cp ~/.cache/wal/colors-kitty.conf ~/.config/kitty/colors.conf
+}
 
-# Wlcolors
-cp ~/.cache/wal/colors-waybar.css ~/.config/wlogout
+apply_rofi_theme() {
+  python ~/.config/rofi/walrofi.py
+}
 
-# Hyprland colors
-python ~/.bin/theme/hyprwal.py ~/.cache/wal/colors.json ~/.config/hypr/theme/colors.conf
+apply_wlcolors() {
+  cp ~/.cache/wal/colors-waybar.css ~/.config/wlogout
+}
 
-# Dunst config rebuild
-killall dunst -q
-~/.bin/theme/update_notify.sh
-dunst && echo "khemamadas"
-notify-send "Scheme update succesfully" "Se ha cambiado correctamente la configuración del tema acorde al fondo de pantalla"
+apply_hyprland_theme() {
+  python ~/.bin/theme/hyprwal.py ~/.cache/wal/colors.json ~/.config/hypr/theme/colors.conf
+}
 
-# Change GTK Icon Color
-icon_colors=$(python ~/.bin/theme/get_icon_variant.py $color2)
-variant=dark
+restart_dunst() {
+  killall dunst -q
+  ~/.bin/theme/update_notify.sh
+  dunst
+  notify-send "Scheme update succesfully" "Se ha cambiado correctamente la configuración del tema acorde al fondo de pantalla"
+}
 
-# Swayosd
-cp ~/.cache/wal/colors.css ~/.config/swayosd
-killall swayosd-server
-swayosd-server &
+apply_gtk_theme() {
+  source ~/.cache/wal/colors.sh
+  icon_colors=$(python ~/.bin/theme/get_icon_variant.py "$color2")
+  local variant="dark"
 
-# RGB
-#color="${color1#\#}"
-#openrgb -c $color -sp
+  gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
+  sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
+  sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini
+}
 
-# Apply GTK Theme
-gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
-sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
-sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini
+restart_swayosd() {
+  cp ~/.cache/wal/colors.css ~/.config/swayosd
+  killall swayosd-server
+  swayosd-server &
+}
+
+# ==============================
+# MAIN
+# ==============================
+main() {
+  local image
+  image=$(get_wallpaper_path)
+
+  prepare_wallpaper "$image"
+  apply_colorscheme
+  restart_panel
+  apply_kitty_theme
+  apply_rofi_theme
+  apply_wlcolors
+  apply_hyprland_theme
+  restart_dunst
+  apply_gtk_theme
+  restart_swayosd
+
+  echo "✅ Configuración aplicada correctamente."
+}
+
+main "$@"

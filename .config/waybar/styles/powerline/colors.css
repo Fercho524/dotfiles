@@ -1,0 +1,139 @@
+@import "../../../../.cache/wal/colors-waybar.css";
+
+
+#custom-launcher {
+    background-color: @color2;
+    color: @foreground; /* texto claro sobre los fondos coloreados */
+}
+
+#custom-right_divA {
+    color: @color1;           /* fg = bg(launcher) */
+    background-color: @color2;/* bg = bg(workspaces) */
+}
+
+
+#workspaces {
+    background-color: @background;
+}
+#workspaces button {
+    color: @foreground;
+}
+#workspaces button:hover {
+    background: @color6;
+    color: @color0;
+}
+#workspaces button.focused {
+    background: @color10;
+}
+#workspaces button.focused:hover {
+    background: @color6;
+    color: @color0;
+}
+#workspaces button.urgent {
+    background-color: @color3;
+}
+
+#custom-right_divB {
+    color: @color2;
+    background-color: @color3;
+}
+
+
+#disk {
+    background-color: @color3;
+    color: @color0;
+}
+
+#custom-right_divC {
+    color: @color3;
+    background-color: @color5;
+}
+
+
+#pulseaudio {
+    background-color: @color5;
+    color: @background;
+}
+
+#custom-right_divD {
+    color: @color5;
+    background-color: @color4;
+}
+
+
+#custom-network {
+    background-color: @color4;
+    color: @background;
+}
+
+#custom-right_divE {
+    color: @color4;
+    background-color: @background;
+}
+
+
+/* Center: taskbar */
+#taskbar {
+    background-color: @background;
+}
+
+
+
+
+/* CPU */
+#custom-left_divA {
+    color: @color6;
+    background-color: @background;
+}
+
+#custom-cpu {
+    background-color: @color6;
+    color: @foreground;
+}
+
+
+/* Memory */
+#custom-left_divB {
+    color: @color5;
+    background-color: @color6;
+}
+
+#memory {
+    background-color: @color5;
+    color: @foreground;
+}
+
+
+/* Battery */
+#custom-left_divC {
+    color: @color1;
+    background-color: @color5;
+}
+
+#battery {
+    background-color: @color1;
+    color: @foreground;
+}
+
+
+/* Tray */
+#custom-left_divD {
+    color: @color8;
+    background-color: @color1;
+}
+
+#tray {
+    background-color: @color8;
+    color: @color0;
+}
+
+/* Clock (end) */
+#custom-left_divE {
+    color: @background;
+    background-color: @color8;
+}
+
+#clock {
+    background-color: @background;
+    color: @foreground;
+}

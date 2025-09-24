@@ -5,8 +5,9 @@ MODULE_LINKER=~/.config/waybar/build/generate_include.py
 LAYOUT_GENERATOR=~/.config/waybar/build/generate_layout.py
 
 # Config
-MODULES_FOLDER=~/.config/waybar/modules
+MODULES_FOLDER=~/.config/waybar/modules/tonal
 MODULES_FILE=~/.config/waybar/include/modules.jsonc
+
 LAYOUT_FILE=~/.config/waybar/layouts/tonal/layout.jsonc
 LAYOUT_STYLE=~/.config/waybar/styles/tonal/style.css
 
@@ -18,11 +19,11 @@ python $LAYOUT_GENERATOR \
 --input $LAYOUT_FILE \
 --modules-file $MODULES_FILE \
 --output $LAYOUT_FILE \
---left custom/launcher hyprland/workspaces disk custom/network \
+--left custom/launcher hyprland/workspaces disk bluetooth custom/network \
 --center wlr/taskbar \
---right pulseaudio custom/cpu memory tray clock \
+--right pulseaudio custom/cpu memory battery tray clock \
 --position bottom \
---margin "8 8 0 8" \
+--margin "8 8 0 5" \
 --height 44
 
 # Exec waybar

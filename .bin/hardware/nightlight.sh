@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if pgrep -x "wlsunset" > /dev/null; then
+if pgrep -x "hyprsunset" > /dev/null; then
     echo "wlsunset ya está corriendo. Deteniendo..."
-    pkill -x "hyprsunset"
+    killall hyprsunset
 else
     echo "Iniciando wlsunset..."
     hyprsunset  -t 4000 -g 80 &

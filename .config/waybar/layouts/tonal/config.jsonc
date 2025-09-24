@@ -1,0 +1,39 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "margin-left": 0,
+    "include": [
+        "~/.config/waybar/include.jsonc",
+        "~/.config/waybar/include/include.jsonc"
+    ],
+    "modules-left": [
+        "custom/launcher",
+        "custom/right_divB",
+        "disk",
+        "custom/right_divC",
+        "pulseaudio",
+        "custom/right_divD",
+        "custom/network",
+        "custom/right_divE"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/left_divA",
+        "custom/cpu",
+        "custom/left_divB",
+        "memory",
+        "custom/left_divC",
+        "battery",
+        "custom/left_divD",
+        "tray",
+        "custom/left_divE",
+        "clock"
+    ]
+}

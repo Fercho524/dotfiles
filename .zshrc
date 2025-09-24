@@ -7,7 +7,7 @@ ZSH_THEME="agnoster"
 zstyle ':omz:update' frequency 30
 
 # Corrections
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Plugins
 plugins=(git zsh-syntax-highlighting  zsh-autosuggestions  )

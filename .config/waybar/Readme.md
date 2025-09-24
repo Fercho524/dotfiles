@@ -110,3 +110,13 @@ You need to edit `./styles/yourtheme/style.css` and include
 1. Always use a subfolder for your theme in the styles, layouts and themes folders, this is a way to scale your settings.
 2. Dont kill wabar in your run.sh, and dont start waybar in the waybar.sh, if you do this you will only have a single panel.
 3. Dont mix styles, layouts between themes, it should preserve a clean arquitecture and dont mix functions.
+
+
+
+
+
+
+--left custom/launcher "custom/right_div#0" hyprland/workspaces "custom/right_div#1" disk "custom/right_div#2" custom/network "custom/right_div#3" \
+--center "custom/left_div#4" wlr/taskbar "custom/right_div#4" \
+--right "custom/left_div#5" pulseaudio "custom/left_div#6" custom/cpu "custom/left_div#7" memory "custom/left_div#8" battery  "custom/left_div#9" tray "custom/left_div#0" clock \
+--position top \

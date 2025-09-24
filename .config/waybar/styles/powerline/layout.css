@@ -1,0 +1,161 @@
+@import "../../../../.cache/wal/colors-waybar.css";
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: FantasqueSansM Nerd Font;
+  font-size: 11px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: @background; /* fondo global */
+  color: @foreground;            /* color global del texto */
+  transition-property: background-color;
+  transition-duration: .5s;
+  margin: 0px;
+  border-radius: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces {
+  padding: 0.5px;
+  border-radius: 0px;
+  margin: 0px;
+}
+
+#workspaces button {
+  border: none;
+  font-size: xx-large;
+  margin-right: 5px;
+}
+
+#workspaces button:hover {
+  border-bottom: 3px solid;
+}
+
+#workspaces button.focused:hover {
+  border-bottom: 3px solid;
+}
+
+#mode {
+  border-bottom: 3px solid;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-launcher,
+#custom-power,
+#custom-layout,
+#custom-updater,
+#custom-snip,
+#taskbar,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-cuda,
+#custom-vram,
+#custom-cpu,
+#custom-memory,
+#custom-network,
+#mpd,
+#backlight {
+  padding: 2px 10px;
+  border-radius: 0px;
+}
+
+#window {
+  margin: 0px 4px;
+}
+
+#clock {
+  font-size: x-large;
+  margin-right: 4px;
+}
+
+#custom-launcher {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+#custom-power {
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+#custom-layout {
+  font-size: 18px;
+}
+
+#taskbar {
+  border-radius: 0px;
+}
+
+#tray {
+  border-radius: 0px;
+}
+
+#keyboard-state > label {
+  padding: 0px 5px;
+}
+
+/* Powerline Dividers (sin colores) */
+/* =========================
+   Powerline Dividers
+   ========================= */
+
+/* Right dividers */
+#custom-right_divA,
+#custom-right_divB,
+#custom-right_divC,
+#custom-right_divD,
+#custom-right_divE,
+#custom-right_divF,
+#custom-right_divG,
+#custom-right_divH,
+#custom-right_divI,
+#custom-right_divJ,
+#custom-right_invA {
+  font-size: 32px;
+  min-height: 32px;
+  padding: 0;
+  margin: 0;
+  background: transparent; /* Fondo transparente para fusionarse con el módulo anterior */
+  color: inherit;          /* Foreground = color del módulo anterior */
+}
+
+/* Left dividers */
+#custom-left_divA,
+#custom-left_divB,
+#custom-left_divC,
+#custom-left_divD,
+#custom-left_divE,
+#custom-left_divF,
+#custom-left_divG,
+#custom-left_divH,
+#custom-left_divI,
+#custom-left_divJ,
+#custom-left_invA,
+#custom-left_invB {
+  font-size: 32px;
+  min-height: 32px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+}
+

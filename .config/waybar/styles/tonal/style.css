@@ -15,7 +15,7 @@ window#waybar {
   transition-property: background-color;
   transition-duration: .5s;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 0px;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -63,6 +63,7 @@ window#waybar.hidden {
 
 #clock,
 #battery,
+#custom-battery,
 #cpu,
 #memory,
 #disk,
@@ -86,6 +87,7 @@ window#waybar.hidden {
 #custom-cpu,
 #custom-memory,
 #custom-network,
+#custom-disk-toggle,
 #mpd,
 #backlight {
   margin-top: 5px;
@@ -143,6 +145,24 @@ window#waybar.hidden {
   background-color: #7bc275;
 }
 
+/* Battery for Thinkpads*/
+#custom-battery {
+  background-color: @color12;
+  color: @foreground;
+}
+
+#custom-battery.good {
+  color: #a6e3a1;
+}
+
+#custom-battery.warn {
+  color: #f9e2af;
+}
+
+#custom-battery.crit {
+  color: #f38ba8;
+}
+
 #bluetooth {
   background-color: @color1;
 }
@@ -161,9 +181,21 @@ label:focus {
   background-color: @color12; /* Fondo de foco */
 }
 
-#disk, #network {
+#disk, #network,#custom-disk-toggle {
   background-color: @color6; /* Azul suave */
   color: @color0;
+}
+
+#custom-disk-toggle.good {
+  color: #a6e3a1;
+}
+
+#custom-disk-toggle.warn {
+  color: #f9e2af;
+}
+
+#custom-disk-toggle.crit {
+  color: #f38ba8;
 }
 
 #memory {

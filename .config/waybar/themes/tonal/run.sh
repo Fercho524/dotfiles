@@ -19,11 +19,11 @@ python $LAYOUT_GENERATOR \
 --input $LAYOUT_FILE \
 --modules-file $MODULES_FILE \
 --output $LAYOUT_FILE \
---left custom/launcher hyprland/workspaces disk bluetooth custom/network \
+--left custom/launcher hyprland/workspaces custom/disk-toggle bluetooth custom/network \
 --center wlr/taskbar \
---right pulseaudio custom/cpu memory battery tray clock \
+--right pulseaudio custom/cpu memory custom/battery tray clock \
 --position bottom \
---margin "8 8 0 5" \
+--margin "0 0 0 0" \
 --height 44
 
 # Exec waybar

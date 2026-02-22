@@ -1,0 +1,9 @@
+{
+    "custom/disk-toggle": {
+        "exec": "~/.bin/hardware/disk.sh",
+        "interval": 30,
+        "return-type": "json",
+        "signal": 11,
+        "on-click": "~/.bin/hardware/disk-toggle.sh"
+    }
+}

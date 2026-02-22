@@ -52,6 +52,12 @@ apply_wlcolors() {
   cp ~/.cache/wal/colors-waybar.css ~/.config/wlogout
 }
 
+apply_hyprwave_colors() {
+  killall hyprwave -q &
+  python ~/.bin/theme/hyprwave.py --colors ~/.cache/wal/colors.json --style ~/.local/share/hyprwave/style.css
+  hyprwave &
+}
+
 apply_hyprland_theme() {
   python ~/.bin/theme/hyprwal.py ~/.cache/wal/colors.json ~/.config/hypr/theme/colors.conf
 }
@@ -63,15 +69,15 @@ restart_dunst() {
   notify-send "Scheme update succesfully" "Se ha cambiado correctamente la configuración del tema acorde al fondo de pantalla"
 }
 
-apply_gtk_theme() {
-  source ~/.cache/wal/colors.sh
-  icon_colors=$(python ~/.bin/theme/get_icon_variant.py "$color2")
-  local variant="dark"
+# apply_gtk_theme() {
+#   source ~/.cache/wal/colors.sh
+#   icon_colors=$(python ~/.bin/theme/get_icon_variant.py "$color0")
+#   local variant="dark"
 
-  gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
-  sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
-  sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini
-}
+#   gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
+#   sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
+#   sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini
+# }
 
 restart_swayosd() {
   cp ~/.cache/wal/colors.css ~/.config/swayosd
@@ -93,8 +99,9 @@ main() {
   apply_rofi_theme
   apply_wlcolors
   apply_hyprland_theme
+  apply_hyprwave_colors
   restart_dunst
-  apply_gtk_theme
+  
   restart_swayosd
 
   echo "✅ Configuración aplicada correctamente."

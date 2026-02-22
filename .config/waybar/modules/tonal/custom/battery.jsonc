@@ -1,0 +1,9 @@
+{
+    "custom/battery": {
+        "exec": "~/.bin/hardware/battery.sh",
+        "interval": 1,
+        "return-type": "json",
+        "signal": 10,
+        "on-click": "~/.bin/hardware/battery-toggle.sh"
+    }
+}

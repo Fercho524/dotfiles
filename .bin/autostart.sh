@@ -1,9 +1,3 @@
-
-gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
-gsettings set org.gnome.desktop.interface icon-theme "$GTK_ICON_THEME"
-gsettings set org.gnome.desktop.interface cursor-theme "$GTK_CURSOR_THEME"
-gsettings set org.gnome.desktop.interface font-name "$GTK_FONT"
-
 if [[ $(echo $XDG_SESSION_TYPE) = "x11" ]]; then
 	# Tiempo de protector de pantallla, usar "xset s noblank" o "xset s 6000"
 	xset dpms s off off

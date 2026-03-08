@@ -82,7 +82,7 @@ restart_dunst() {
 restart_swayosd() {
   cp ~/.cache/wal/colors.css ~/.config/swayosd
   killall swayosd-server
-  swayosd-server &
+  swayosd-server -s ~/.config/swayosd/style.css --top-margin 0.1
 }
 
 # ==============================
@@ -99,7 +99,6 @@ main() {
   apply_rofi_theme
   apply_wlcolors
   apply_hyprland_theme
-  apply_hyprwave_colors
   restart_dunst
   
   restart_swayosd

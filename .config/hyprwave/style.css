@@ -1,6 +1,6 @@
 :root {
     /* Background Colors - Vintage Dark */
-    --bg-primary: rgba(35, 30, 50, 0.75);
+    --bg-primary: rgba(35, 30, 50, 0);
     --bg-secondary: rgba(40, 35, 55, 0.75);
     --bg-album-cover: rgba(45, 40, 60, 0.85);
     --bg-album-secondary: rgba(50, 45, 65, 0.85);

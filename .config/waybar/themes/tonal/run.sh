@@ -23,8 +23,10 @@ python $LAYOUT_GENERATOR \
 --center wlr/taskbar \
 --right pulseaudio custom/cpu memory custom/battery tray clock \
 --position bottom \
---margin "0 0 0 0" \
+--margin "0" \
 --height 44
+
+# --margin "8 8 0 8" \
 
 # Exec waybar
 waybar -c $LAYOUT_FILE -s $LAYOUT_STYLE

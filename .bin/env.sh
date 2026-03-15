@@ -1,9 +1,7 @@
 #!/bin/bash
 
-distro="arch"
-
 export INTERFACE_SCHEME="dark"
-export INTERFACE_ACCENT_COLOR="wal" # "define your color"
+export INTERFACE_ACCENT_COLOR="wal"
 
 # GTK THEMING
 

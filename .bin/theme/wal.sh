@@ -6,11 +6,9 @@
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 source /home/fercho/.bin/env.sh
 
-
 # ==============================
 # Funciones
 # ==============================
-
 get_wallpaper_path() {
   if [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
     file_path=$(awk -F= 'NR==2 {print $2}' ~/.config/nitrogen/bg-saved.cfg)
@@ -36,7 +34,7 @@ apply_colorscheme() {
   fi
 }
 
-restart_panel() {
+apply_pannel_colors() {
   ~/.bin/system/pannel.sh
 }
 
@@ -58,28 +56,34 @@ apply_hyprwave_colors() {
   hyprwave &
 }
 
+apply_eww_colors() {
+  killall eww
+  eww daemon
+  ~/.config/eww/start.sh
+}
+
 apply_hyprland_theme() {
   python ~/.bin/theme/hyprwal.py ~/.cache/wal/colors.json ~/.config/hypr/theme/colors.conf
 }
 
-restart_dunst() {
+apply_dunst_colors() {
   killall dunst -q
   ~/.bin/theme/update_notify.sh
   dunst
   notify-send "Scheme update succesfully" "Se ha cambiado correctamente la configuración del tema acorde al fondo de pantalla"
 }
 
-# apply_gtk_theme() {
-#   source ~/.cache/wal/colors.sh
-#   icon_colors=$(python ~/.bin/theme/get_icon_variant.py "$color0")
-#   local variant="dark"
+apply_gtk_theme() {
+  source ~/.cache/wal/colors.sh
+  icon_colors=$(python ~/.bin/theme/get_icon_variant.py "$color0")
+  local variant="dark"
 
-#   gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
-#   sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
-#   sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini
-# }
+  gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$icon_colors-$variant"
+  sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-3.0/settings.ini
+  sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=Tela-circle-$icon_colors-$variant/" ~/.config/gtk-4.0/settings.ini
+}
 
-restart_swayosd() {
+apply_swayosd_colors() {
   cp ~/.cache/wal/colors.css ~/.config/swayosd
   killall swayosd-server
   swayosd-server -s ~/.config/swayosd/style.css --top-margin 0.1
@@ -91,17 +95,16 @@ restart_swayosd() {
 main() {
   local image
   image=$(get_wallpaper_path)
-
   prepare_wallpaper "$image"
   apply_colorscheme
-  restart_panel
+  #apply_eww_colors
+  apply_pannel_colors
+  apply_hyprland_theme
+  apply_swayosd_colors
   apply_kitty_theme
   apply_rofi_theme
   apply_wlcolors
-  apply_hyprland_theme
-  restart_dunst
-  
-  restart_swayosd
+  apply_dunst_colors
 
   echo "✅ Configuración aplicada correctamente."
 }

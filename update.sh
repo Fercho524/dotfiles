@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Update
+rm -rfv .bin
+rm -rfv .cache
+rm -rfv .config
+rm -rfv .local
+
 # Scripts
 cp -rv ~/.bin .
 
@@ -13,6 +19,7 @@ cp -rv ~/.cache/wal .cache/
 
 # Config
 cp -rv /home/fercho/.config/bspwm  .config/
+cp -rv /home/fercho/.config/eww  .config/
 cp -rv /home/fercho/.config/dunst  .config/
 cp -rv /home/fercho/.config/hypr  .config/
 cp -rv /home/fercho/.config/hyprwave  .config/

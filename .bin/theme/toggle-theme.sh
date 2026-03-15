@@ -10,16 +10,29 @@ if [[ ! -f "$ENV_FILE" ]]; then
   exit 1
 fi
 
+DARK_THEME="MacTahoe-Dark-nord"
+LIGHT_THEME="MacTahoe-Light-nord"
+
 # Detectar valor actual de INTERFACE_SCHEME
 CURRENT="$(grep -E '^export INTERFACE_SCHEME=' "$ENV_FILE" | sed -E 's/^export INTERFACE_SCHEME="(.*)"/\1/')"
 
 if [[ "$CURRENT" == "dark" ]]; then
   NEW="light"
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+  gsettings set org.gnome.desktop.interface gtk-color-scheme "prefer-light"
+  #gsettings set org.gnome.desktop.interface gtk-theme $LIGHT_THEME
+  #gsettings set org.gnome.desktop.wm.preferences theme $LIGHT_THEME
 elif [[ "$CURRENT" == "light" ]]; then
   NEW="dark"
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+  gsettings set org.gnome.desktop.interface gtk-color-scheme "prefer-dark"
+  #gsettings set org.gnome.desktop.interface gtk-theme $DARK_THEME
+  #gsettings set org.gnome.desktop.wm.preferences theme $DARK_THEME
 else
   # Valor inesperado → por defecto cambia a dark
   NEW="dark"
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+  gsettings set org.gnome.desktop.interface gtk-color-scheme "prefer-dark"
 fi
 
 # Reemplazar la línea en el archivo

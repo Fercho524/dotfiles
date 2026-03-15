@@ -1,0 +1,374 @@
+// ╔══════════════════════════════════════════════════════════════╗
+// ║             Eww Widgets - Catppuccin Macchiato               ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+// ── Colors (Catppuccin Macchiato) ────────────────────────────────
+
+@import "/home/fercho/.cache/wal/colors.scss";
+
+/* mapping pywal -> catppuccin style */
+
+$rosewater: $color14;
+$flamingo: $color13;
+$pink: $color13;
+$mauve: $color6;
+
+$red: $color1;
+$maroon: $color1;
+$peach: $color11;
+$yellow: $color11;
+
+$green: $color4;
+$teal: $color12;
+
+$sky: $color14;
+$sapphire: $color4;
+$blue: $color10;
+$lavender: $color6;
+
+/* text */
+
+$text: $foreground;
+$subtext1: $color7;
+$subtext0: $color15;
+
+/* overlays */
+
+$overlay2: $color8;
+$overlay1: $color8;
+$overlay0: $color8;
+
+/* surfaces */
+
+$surface2: $color0;
+$surface1: $background;
+$surface0: $background;
+
+/* base layers */
+
+$base: $background;
+$mantle: $color0;
+$crust: $color0;
+
+$radius : 10px;
+
+// ── Shared Card Style ────────────────────────────────────────────
+
+@mixin card {
+    background: rgba($base, 0.85);
+    border: 1px solid rgba($surface1, 0.5);
+    border-radius: $radius;
+    padding: 16px 20px;
+    box-shadow: 0 8px 24px rgba($mantle, 0.6);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &:hover {
+        background: rgba($base, 0.95);
+        border: 1px solid rgba($surface2, 0.8);
+        box-shadow: 0 12px 32px rgba($crust, 0.8);
+    }
+}
+
+.card-title {
+    color: $subtext0;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+// ── Clock ────────────────────────────────────────────────────────
+
+.clock-card {
+    @include card;
+
+    .clock-time {
+        margin-bottom: 4px;
+    }
+
+    .clock-hour,
+    .clock-min {
+        font-size: 48px;
+        font-weight: 700;
+        color: $text;
+        min-width: 80px;
+    }
+
+    .clock-colon {
+        font-size: 44px;
+        font-weight: 700;
+        color: $mauve;
+        margin: 0 2px;
+        padding-bottom: 4px;
+    }
+
+    .clock-ampm {
+        font-size: 14px;
+        font-weight: 600;
+        color: $mauve;
+        margin-left: 6px;
+        margin-top: 18px;
+    }
+
+    .clock-day {
+        font-size: 16px;
+        font-weight: 600;
+        color: $teal;
+        margin-bottom: 2px;
+    }
+
+    .clock-date {
+        font-size: 13px;
+        color: $subtext0;
+    }
+}
+
+// ── Battery & Volume ─────────────────────────────────────────────
+
+.battvol-card {
+    @include card;
+
+    .bv-section {
+        padding: 8px 4px;
+    }
+
+    .bv-icon {
+        font-size: 28px;
+        margin-bottom: 4px;
+    }
+
+    .bv-bat-icon {
+        color: $green;
+    }
+
+    .bv-vol-icon {
+        color: $sapphire;
+    }
+
+    .bv-value {
+        font-size: 18px;
+        font-weight: 700;
+        color: $text;
+    }
+
+    .bv-label {
+        font-size: 11px;
+        color: $subtext0;
+        margin-top: 2px;
+    }
+}
+
+// ── Uptime ───────────────────────────────────────────────────────
+
+.uptime-card {
+    @include card;
+    padding: 12px 20px;
+
+    .uptime-icon {
+        font-size: 24px;
+        color: $peach;
+        margin-right: 14px;
+    }
+
+    .uptime-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: $subtext0;
+    }
+
+    .uptime-value {
+        font-size: 16px;
+        font-weight: 700;
+        color: $text;
+        margin-top: 2px;
+    }
+}
+
+// ── System Monitor ───────────────────────────────────────────────
+
+
+.sysmon-card {
+    @include card;
+
+    .stat-item {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .stat-header {
+        margin-bottom: 6px;
+    }
+
+    .stat-icon {
+        font-size: 14px;
+        margin-right: 8px;
+    }
+
+    .stat-icon-blue {
+        color: $sapphire;
+    }
+
+    .stat-icon-mauve {
+        color: $mauve;
+    }
+
+    .stat-icon-green {
+        color: $green;
+    }
+
+    .stat-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: $subtext1;
+    }
+
+    .stat-value {
+        font-size: 12px;
+        font-weight: 600;
+        color: $text;
+    }
+
+    .stat-bar-track {
+        min-height: 8px;
+        border-radius: 8px;
+        background: rgba($surface0, 0.6);
+    }
+
+    .stat-bar-fill {
+        min-height: 8px;
+        border-radius: 8px;
+    }
+
+    .stat-fill-blue {
+        background: $sapphire;
+    }
+
+    .stat-fill-mauve {
+        background: $mauve;
+    }
+
+    .stat-fill-green {
+        background: $green;
+    }
+}
+
+// ── Music Player ─────────────────────────────────────────────────
+
+.music-card {
+    @include card;
+
+    &.music-stopped {
+        .music-title {
+            color: $subtext0;
+            font-style: italic;
+        }
+    }
+
+    .music-info {
+        margin-bottom: 12px;
+    }
+
+    .music-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: $text;
+        margin-bottom: 2px;
+    }
+
+    .music-artist {
+        font-size: 13px;
+        color: $subtext0;
+    }
+
+    .music-controls {
+        margin-top: 4px;
+    }
+
+    .music-btn {
+        font-size: 22px;
+        color: $subtext1;
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        padding: 6px 14px;
+
+        &:hover {
+            color: $mauve;
+            background: rgba($mauve, 0.1);
+        }
+    }
+
+    .music-play {
+        font-size: 28px;
+        color: $mauve;
+
+        &:hover {
+            color: $lavender;
+        }
+    }
+}
+
+// ── Calendar ─────────────────────────────────────────────────────
+
+.cal-card {
+    @include card;
+
+    .cal {
+        color: $text;
+        font-size: 12px;
+        padding: 4px;
+
+        &:selected {
+            color: $base;
+            background: $mauve;
+            border-radius: 6px;
+        }
+
+        &:indeterminate {
+            color: $surface2;
+        }
+
+        &.header {
+            color: $mauve;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        &.button {
+            color: $subtext0;
+            background: transparent;
+            border: none;
+
+            &:hover {
+                color: $mauve;
+                background: rgba($mauve, 0.1);
+                border-radius: 6px;
+            }
+        }
+
+        &.highlight {
+            color: $base;
+            background: $green;
+            border-radius: 8px;
+            font-weight: 800;
+        }
+    }
+}
+
+// ── Global ───────────────────────────────────────────────────────
+
+* {
+    all: unset;
+    font-family: "Inter", "Roboto", "Segoe UI", "JetBrainsMono Nerd Font", "JetBrains Mono", "Noto Sans", sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+label.clock-hour,
+label.clock-min,
+label.stat-value,
+label.bv-value,
+label.uptime-value {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+}

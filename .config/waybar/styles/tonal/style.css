@@ -137,30 +137,33 @@ window#waybar.hidden {
 }
 
 #battery {
-  background-color: @color12; /* Fondo batería */
+  background-color: @color0; /* Fondo batería */
   color: @foreground;
 }
 
 #battery.charging {
-  background-color: #7bc275;
+  background-color: @color1;
 }
 
 /* Battery for Thinkpads*/
 #custom-battery {
-  background-color: @color12;
+  background-color: @color0;
   color: @foreground;
 }
 
 #custom-battery.good {
-  color: #a6e3a1;
+  background-color: @color0;
+  color: @foreground;
 }
 
 #custom-battery.warn {
-  color: #f9e2af;
+  background-color: @color1;
+  color: @foreground;
 }
 
 #custom-battery.crit {
-  color: #f38ba8;
+  background-color: @color2;
+  color: @foreground;
 }
 
 #bluetooth {
